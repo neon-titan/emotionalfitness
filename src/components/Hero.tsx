@@ -1,12 +1,9 @@
-
 import { Button } from "@/components/ui/button";
 import Logo from "./Logo";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
 const Hero = () => {
-  return (
-    <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden bg-black">
+  return <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden bg-black">
       {/* Background gradient effects */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-blue/20 rounded-full filter blur-[100px]"></div>
@@ -26,16 +23,10 @@ const Hero = () => {
             <span className="text-chrome bg-clip-text">TRAINING</span>
           </h1>
           
-          <p className="text-white/80 mt-6 text-xl max-w-2xl">
-            Optimize your emotions for peak performance. Boutique coaching for high performers seeking breakthrough results in business and life.
-          </p>
+          <p className="text-white/80 mt-6 text-xl max-w-2xl">Optimize your emotions for peak performance.</p>
           
           <div className="mt-10 flex flex-col md:flex-row gap-6 md:gap-4">
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-purple hover:to-brand-pink transition-all"
-              onClick={() => window.open('https://calendly.com/alan-muellegger/emotional-fitness-session', '_blank')}
-            >
+            <Button size="lg" className="bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-purple hover:to-brand-pink transition-all" onClick={() => window.open('https://calendly.com/alan-muellegger/emotional-fitness-session', '_blank')}>
               Book a Session
             </Button>
             <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/5" asChild>
@@ -51,17 +42,7 @@ const Hero = () => {
           
           <div className="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce">
             <a href="#services" className="text-white/50 hover:text-white transition-colors">
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                width="24" 
-                height="24" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-              >
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M7 13l5 5 5-5"></path>
                 <path d="M7 6l5 5 5-5"></path>
               </svg>
@@ -78,8 +59,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
