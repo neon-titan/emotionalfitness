@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
@@ -16,6 +17,13 @@ const testimonials = [
     role: "Coach & Creator",
     content: "On our first call, Alan gave me one simple shift — I raised my price, and the next day I closed a client, paid in full. My posts improved, my energy changed, and I felt more confident showing up. I'm making more money and doing it from a grounded place.",
     image: "/lovable-uploads/0eb52a72-5ee0-4e5a-8251-e61bd4989dc7.png"
+  },
+  {
+    id: 3,
+    name: "Rachel Gubler",
+    role: "Therapeutic Nutritional Counselor/Holistic Iridologist at Rachel Gubler Coaching",
+    content: "Alan did not disappoint. Those two days were absolutely epic — playful, energizing, and deeply clarifying. I walked away with tangible tools, a renewed sense of purpose, and a connection to what's truly possible. Alan's work is emotionally potent, and his presence is pure service.",
+    image: "/lovable-uploads/c1196310-1a24-4bd0-a6b3-959e052d81e7.png"
   }
 ];
 
