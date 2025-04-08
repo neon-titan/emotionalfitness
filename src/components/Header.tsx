@@ -85,7 +85,7 @@ const Header = () => {
               className="bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-purple hover:to-brand-pink transition-all"
               onClick={() => window.open('https://calendly.com/alan-muellegger/emotional-fitness-session', '_blank')}
             >
-              Book Now
+              Book a Session
             </Button>
           </nav>
         </div>
@@ -179,7 +179,7 @@ const Header = () => {
                 window.open('https://calendly.com/alan-muellegger/emotional-fitness-session', '_blank');
               }}
             >
-              Book Now
+              Book a Session
             </Button>
           </div>
         </nav>

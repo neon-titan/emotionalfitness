@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -286,11 +285,6 @@ const AboutPage = () => {
         
         {/* CTA Section */}
         <section className="py-20 relative overflow-hidden">
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute top-1/3 left-1/3 w-96 h-96 bg-brand-blue/20 rounded-full filter blur-[100px]"></div>
-            <div className="absolute bottom-1/3 right-1/3 w-96 h-96 bg-brand-purple/20 rounded-full filter blur-[100px]"></div>
-          </div>
-          
           <div className="container mx-auto px-4 relative z-10 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Emotional Fitness?</h2>
             <p className="text-white/80 mb-8 max-w-2xl mx-auto">
@@ -303,7 +297,7 @@ const AboutPage = () => {
               className="bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-purple hover:to-brand-pink transition-all"
               onClick={() => window.open('https://calendly.com/alan-muellegger/emotional-fitness-session', '_blank')}
             >
-              Book a Free Consultation
+              Book a Session
             </Button>
           </div>
         </section>

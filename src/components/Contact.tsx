@@ -1,3 +1,4 @@
+
 import { Instagram, Twitter, Facebook, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -21,7 +22,7 @@ const Contact = () => {
             onClick={() => window.open('https://calendly.com/alan-muellegger/emotional-fitness-session', '_blank')}
             size="lg"
           >
-            Schedule a Session
+            Book a Session
           </Button>
           
           <div className="w-full">
