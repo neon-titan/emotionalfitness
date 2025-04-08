@@ -1,7 +1,7 @@
+
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 
 import Logo from "./Logo";
 import { Button } from "@/components/ui/button";
@@ -90,35 +90,27 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
-      <AnimatePresence>
-        {isOpen && isMobile && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden bg-black border-b border-white/10"
-          >
-            <nav className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-              <MobileNavLink to="/#services" onClick={() => setIsOpen(false)}>Services</MobileNavLink>
-              <MobileNavLink to="/#about" onClick={() => setIsOpen(false)}>About</MobileNavLink>
-              <MobileNavLink to="/#testimonials" onClick={() => setIsOpen(false)}>Testimonials</MobileNavLink>
-              <MobileNavLink to="/#pricing" onClick={() => setIsOpen(false)}>Pricing</MobileNavLink>
-              <MobileNavLink to="/blog" onClick={() => setIsOpen(false)}>Blog</MobileNavLink>
-              <MobileNavLink to="/#contact" onClick={() => setIsOpen(false)}>Contact</MobileNavLink>
-              <div className="pt-2">
-                <Button className="w-full bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-purple hover:to-brand-pink transition-all" onClick={() => {
-                  window.open('https://calendly.com/alan-muellegger/emotional-fitness-session', '_blank');
-                  setIsOpen(false);
-                }}>
-                  Book a Session
-                </Button>
-              </div>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Mobile Navigation - Simple version without animations */}
+      {isOpen && isMobile && (
+        <div className="md:hidden bg-black border-b border-white/10">
+          <nav className="container mx-auto px-4 py-4 flex flex-col space-y-4">
+            <MobileNavLink to="/#services" onClick={() => setIsOpen(false)}>Services</MobileNavLink>
+            <MobileNavLink to="/#about" onClick={() => setIsOpen(false)}>About</MobileNavLink>
+            <MobileNavLink to="/#testimonials" onClick={() => setIsOpen(false)}>Testimonials</MobileNavLink>
+            <MobileNavLink to="/#pricing" onClick={() => setIsOpen(false)}>Pricing</MobileNavLink>
+            <MobileNavLink to="/blog" onClick={() => setIsOpen(false)}>Blog</MobileNavLink>
+            <MobileNavLink to="/#contact" onClick={() => setIsOpen(false)}>Contact</MobileNavLink>
+            <div className="pt-2">
+              <Button className="w-full bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-purple hover:to-brand-pink transition-all" onClick={() => {
+                window.open('https://calendly.com/alan-muellegger/emotional-fitness-session', '_blank');
+                setIsOpen(false);
+              }}>
+                Book a Session
+              </Button>
+            </div>
+          </nav>
+        </div>
+      )}
     </header>
   );
 };
