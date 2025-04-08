@@ -31,6 +31,13 @@ const testimonials = [
     role: "Leadership Coach",
     content: "Alan's emotional fitness training completely transformed how I handle stress and make decisions under pressure. Working with him took me to deeper levels of self-awareness than I thought possible. His guidance helped me navigate challenging situations with clarity and purpose, and my team has noticed a significant improvement in my leadership. I'm truly grateful for this journey.",
     image: "/lovable-uploads/698b6461-b40d-447a-b58e-49ae155ad21a.png"
+  },
+  {
+    id: 5,
+    name: "Ben Hale",
+    role: "Coach & Creator",
+    content: "On our first call, Alan gave me one simple shift — I raised my price, and the next day I closed a client, paid in full. My posts improved, my energy changed, and I felt more confident showing up. I'm making more money and doing it from a grounded place.",
+    image: "/lovable-uploads/0eb52a72-5ee0-4e5a-8251-e61bd4989dc7.png"
   }
 ];
 
