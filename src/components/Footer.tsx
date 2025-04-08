@@ -63,16 +63,36 @@ const Footer = () => {
               
               <h4 className="text-white font-semibold mt-6 mb-4">Connect</h4>
               <div className="flex space-x-4">
-                <a href="#" className="text-white/70 hover:text-brand-blue transition-colors">
+                <a 
+                  href="https://www.instagram.com/muellegger/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-white/70 hover:text-brand-blue transition-colors"
+                >
                   <Instagram size={20} />
                 </a>
-                <a href="#" className="text-white/70 hover:text-brand-blue transition-colors">
+                <a 
+                  href="https://twitter.com/AMuellegger" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-white/70 hover:text-brand-blue transition-colors"
+                >
                   <Twitter size={20} />
                 </a>
-                <a href="#" className="text-white/70 hover:text-brand-blue transition-colors">
+                <a 
+                  href="https://www.facebook.com/alan.muellegger/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-white/70 hover:text-brand-blue transition-colors"
+                >
                   <Facebook size={20} />
                 </a>
-                <a href="#" className="text-white/70 hover:text-brand-blue transition-colors">
+                <a 
+                  href="https://www.linkedin.com/in/alan-muellegger" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-white/70 hover:text-brand-blue transition-colors"
+                >
                   <Linkedin size={20} />
                 </a>
               </div>
