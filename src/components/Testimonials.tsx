@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
@@ -6,34 +5,13 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 const testimonials = [
   {
     id: 1,
-    name: "Sarah Johnson",
-    role: "CEO, TechVision",
-    content: "Alan's emotional fitness training completely transformed how I handle stress and make decisions under pressure. My team has noticed a significant improvement in my leadership.",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
-  },
-  {
-    id: 2,
-    name: "Michael Chen",
-    role: "Olympic Athlete",
-    content: "Working with Alan helped me overcome performance anxiety that was holding me back. I've achieved new personal bests and can maintain peak state even under intense competition pressure.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
-  },
-  {
-    id: 3,
-    name: "Emily Rodriguez",
-    role: "Entrepreneur",
-    content: "The emotional optimization techniques I learned from Alan were game-changers for my business. I'm now able to maintain drive and passion even during challenging periods.",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
-  },
-  {
-    id: 4,
     name: "Karen Thekraken",
     role: "Leadership Coach",
     content: "Alan's emotional fitness training completely transformed how I handle stress and make decisions under pressure. Working with him took me to deeper levels of self-awareness than I thought possible. His guidance helped me navigate challenging situations with clarity and purpose, and my team has noticed a significant improvement in my leadership. I'm truly grateful for this journey.",
     image: "/lovable-uploads/698b6461-b40d-447a-b58e-49ae155ad21a.png"
   },
   {
-    id: 5,
+    id: 2,
     name: "Ben Hale",
     role: "Coach & Creator",
     content: "On our first call, Alan gave me one simple shift — I raised my price, and the next day I closed a client, paid in full. My posts improved, my energy changed, and I felt more confident showing up. I'm making more money and doing it from a grounded place.",
