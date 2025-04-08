@@ -1,60 +1,79 @@
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Separator } from "@/components/ui/separator";
 
 const TermsOfService = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen bg-black text-white">
       <Header />
-      <main className="flex-grow container mx-auto px-4 py-12 max-w-4xl">
-        <h1 className="text-4xl font-bold mb-8">Terms of Service</h1>
-        
-        <div className="prose prose-lg">
-          <p className="mb-4">Last Updated: April 8, 2025</p>
+      
+      <main className="container mx-auto px-4 py-24">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-3xl md:text-4xl font-bold mb-8 gradient-text">Terms of Service</h1>
           
-          <h2 className="text-2xl font-semibold mt-8 mb-4">1. Agreement to Terms</h2>
-          <p className="mb-4">
-            By accessing or using our fitness training services, you agree to be bound by these Terms of Service.
-            If you disagree with any part of the terms, you may not access our services.
-          </p>
-          
-          <h2 className="text-2xl font-semibold mt-8 mb-4">2. Services</h2>
-          <p className="mb-4">
-            We provide fitness training services, including but not limited to personal training, group classes,
-            and online fitness programs. The specific details of each service will be provided at the time of purchase or registration.
-          </p>
-          
-          <h2 className="text-2xl font-semibold mt-8 mb-4">3. Payments and Refunds</h2>
-          <p className="mb-4">
-            Payment for our services is due at the time of purchase or according to the payment schedule agreed upon.
-            We offer refunds in accordance with our refund policy, which may vary by service.
-            Typically, refunds may be issued within 14 days of purchase if you have not yet started using the service.
-          </p>
-          
-          <h2 className="text-2xl font-semibold mt-8 mb-4">4. User Responsibilities</h2>
-          <p className="mb-4">
-            You are responsible for:
-          </p>
-          <ul className="list-disc pl-8 mb-4">
-            <li>Providing accurate health information relevant to your fitness activities.</li>
-            <li>Following the guidance and instructions provided by our trainers.</li>
-            <li>Using proper equipment and ensuring your environment is safe for exercise.</li>
-            <li>Consulting with a healthcare provider before beginning any fitness program.</li>
-          </ul>
-          
-          <h2 className="text-2xl font-semibold mt-8 mb-4">5. Limitation of Liability</h2>
-          <p className="mb-4">
-            We are not responsible for any injuries or health issues that may result from following our fitness programs.
-            Exercise involves inherent risks, and you participate at your own risk.
-          </p>
-          
-          <h2 className="text-2xl font-semibold mt-8 mb-4">6. Contact Us</h2>
-          <p className="mb-4">
-            If you have any questions about these Terms of Service, please contact us at:
-            terms@fitnesstraining.com
-          </p>
+          <div className="space-y-8 text-white/80">
+            <section>
+              <h2 className="text-2xl font-semibold mb-4 text-white">1. Introduction</h2>
+              <p>
+                Welcome to Emotional Fitness Training. These terms and conditions outline the rules and regulations for the use of our website and services.
+              </p>
+              <p className="mt-2">
+                By accessing this website, we assume you accept these terms and conditions. Do not continue to use our website if you do not agree to take all of the terms and conditions stated on this page.
+              </p>
+            </section>
+            
+            <Separator className="bg-white/10" />
+            
+            <section>
+              <h2 className="text-2xl font-semibold mb-4 text-white">2. Services</h2>
+              <p>
+                Emotional Fitness Training provides coaching and consulting services focused on emotional health and performance optimization. The specific details, duration, and pricing of our services will be agreed upon separately between Emotional Fitness Training and the client.
+              </p>
+              <p className="mt-2">
+                Our services are not a substitute for professional medical or psychological treatment. If you are experiencing serious mental health issues, please consult with a qualified healthcare professional.
+              </p>
+            </section>
+            
+            <Separator className="bg-white/10" />
+            
+            <section>
+              <h2 className="text-2xl font-semibold mb-4 text-white">3. Intellectual Property</h2>
+              <p>
+                Unless otherwise stated, Emotional Fitness Training and/or its licensors own the intellectual property rights for all material on this website. All intellectual property rights are reserved.
+              </p>
+              <p className="mt-2">
+                You may view and/or print pages from our website for your own personal use subject to restrictions set in these terms and conditions.
+              </p>
+            </section>
+            
+            <Separator className="bg-white/10" />
+            
+            <section>
+              <h2 className="text-2xl font-semibold mb-4 text-white">4. Limitations of Liability</h2>
+              <p>
+                In no event shall Emotional Fitness Training, nor any of its officers, directors, and employees, be liable to you for anything arising out of or in any way connected with your use of this website or our services, whether such liability is under contract, tort or otherwise.
+              </p>
+              <p className="mt-2">
+                Emotional Fitness Training, including its officers, directors, and employees will not be liable for any indirect, consequential, or special liability arising out of or in any way related to your use of this website or our services.
+              </p>
+            </section>
+            
+            <Separator className="bg-white/10" />
+            
+            <section>
+              <h2 className="text-2xl font-semibold mb-4 text-white">5. Changes to These Terms</h2>
+              <p>
+                We reserve the right to make changes to these terms and conditions at any time. The updated version will be indicated by an updated "Last updated" date.
+              </p>
+              <p className="mt-4">
+                Last updated: April 8, 2025
+              </p>
+            </section>
+          </div>
         </div>
       </main>
+      
       <Footer />
     </div>
   );

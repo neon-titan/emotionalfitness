@@ -1,42 +1,67 @@
-
 import { Button } from "@/components/ui/button";
+import Logo from "./Logo";
 
 const Hero = () => {
   return (
-    <section className="relative py-20 md:py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-gray-100 to-white z-0"></div>
-      
-      {/* The shiny chrome "TRAINING" text */}
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[180px] md:text-[240px] font-extrabold opacity-10 text-transparent bg-clip-text bg-gradient-to-b from-gray-300 via-gray-100 to-gray-400 select-none z-0">
-        TRAINING
+    <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden bg-black">
+      {/* Background gradient effects */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-blue/20 rounded-full filter blur-[100px]"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-purple/20 rounded-full filter blur-[100px]"></div>
+        <div className="absolute top-1/2 right-1/3 w-72 h-72 bg-brand-pink/20 rounded-full filter blur-[100px]"></div>
       </div>
-      
+
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Master Your Emotions, Master Your Life
+        <div className="flex flex-col items-center justify-center text-center">
+          <div className="mb-6">
+            <Logo size="xl" />
+          </div>
+          
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mt-8 leading-tight">
+            <span className="gradient-text">EMOTIONAL FITNESS</span><br /> 
+            <span className="text-chrome bg-clip-text">TRAINING</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 mb-10">
-            Emotional fitness training to help you build resilience, manage stress, and improve your overall wellbeing.
+          
+          <p className="text-white/80 mt-6 text-xl max-w-2xl">
+            Optimize your emotions for peak performance.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a
-              href="https://calendly.com/alan-muellegger/emotional-fitness-session"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button size="lg" className="w-full sm:w-auto">
-                Book Now
-              </Button>
-            </a>
+          
+          <div className="mt-10 flex flex-col md:flex-row gap-6 md:gap-4">
             <Button 
-              variant="outline" 
-              size="lg"
-              className="w-full sm:w-auto"
-              onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
+              size="lg" 
+              className="bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-purple hover:to-brand-pink transition-all"
+              onClick={() => window.open('https://calendly.com/alan-muellegger/emotional-fitness-session', '_blank')}
             >
+              Book a Session
+            </Button>
+            <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/5">
               Learn More
             </Button>
+          </div>
+          
+          <div className="mt-16 md:mt-24">
+            <p className="uppercase tracking-widest text-white/50 text-base mb-4 font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-white/80 to-white/60 animate-pulse">
+              PEAK STATE | OPTIMIZATION | PASSION | DRIVE
+            </p>
+          </div>
+          
+          <div className="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce">
+            <a href="#services" className="text-white/50 hover:text-white transition-colors">
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="24" 
+                height="24" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+              >
+                <path d="M7 13l5 5 5-5"></path>
+                <path d="M7 6l5 5 5-5"></path>
+              </svg>
+            </a>
           </div>
         </div>
       </div>

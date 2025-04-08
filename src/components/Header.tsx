@@ -1,102 +1,105 @@
-
-import { useState } from "react";
-import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-sm border-b">
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center">
-            <Link to="/" className="text-2xl font-bold">
-              EMOTIONAL FITNESS
-            </Link>
-          </div>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? "bg-black/80 backdrop-blur-md py-3" : "bg-transparent py-5"
+      }`}
+    >
+      <div className="container mx-auto px-4 flex items-center justify-between">
+        <a href="/" className="text-white text-xl font-bold">
+          <span className="gradient-text">EMOTIONAL FITNESS</span>
+        </a>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="font-medium hover:text-primary">
-              Home
-            </Link>
-            <Link to="/#features" className="font-medium hover:text-primary">
-              Services
-            </Link>
-            <Link to="/#about" className="font-medium hover:text-primary">
-              About
-            </Link>
-            <Link to="/#testimonials" className="font-medium hover:text-primary">
-              Testimonials
-            </Link>
-            <a
-              href="https://calendly.com/alan-muellegger/emotional-fitness-session"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button>Book a Session</Button>
-            </a>
-          </nav>
-
-          {/* Mobile menu button */}
-          <button
-            className="md:hidden p-2"
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center space-x-8">
+          <a href="#services" className="text-white hover:text-brand-blue transition-colors">
+            Services
+          </a>
+          <a href="#about" className="text-white hover:text-brand-blue transition-colors">
+            About
+          </a>
+          <a href="#testimonials" className="text-white hover:text-brand-blue transition-colors">
+            Testimonials
+          </a>
+          <a href="#contact" className="text-white hover:text-brand-blue transition-colors">
+            Contact
+          </a>
+          <Button 
+            className="bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-purple hover:to-brand-pink transition-all"
+            onClick={() => window.open('https://calendly.com/alan-muellegger/emotional-fitness-session', '_blank')}
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+            Book Now
+          </Button>
+        </nav>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden text-white"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
 
       {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div className="md:hidden container mx-auto px-4 py-4 bg-white border-t">
-          <div className="flex flex-col space-y-4">
-            <Link
-              to="/"
-              className="font-medium p-2 hover:bg-gray-100 rounded"
-              onClick={toggleMenu}
-            >
-              Home
-            </Link>
-            <Link
-              to="/#features"
-              className="font-medium p-2 hover:bg-gray-100 rounded"
-              onClick={toggleMenu}
+      {isMobileMenuOpen && (
+        <nav className="md:hidden bg-black/95 backdrop-blur-md absolute w-full py-4 animate-fade-in">
+          <div className="container mx-auto px-4 flex flex-col space-y-4">
+            <a
+              href="#services"
+              className="text-white hover:text-brand-blue transition-colors py-2"
+              onClick={() => setIsMobileMenuOpen(false)}
             >
               Services
-            </Link>
-            <Link
-              to="/#about"
-              className="font-medium p-2 hover:bg-gray-100 rounded"
-              onClick={toggleMenu}
+            </a>
+            <a
+              href="#about"
+              className="text-white hover:text-brand-blue transition-colors py-2"
+              onClick={() => setIsMobileMenuOpen(false)}
             >
               About
-            </Link>
-            <Link
-              to="/#testimonials"
-              className="font-medium p-2 hover:bg-gray-100 rounded"
-              onClick={toggleMenu}
+            </a>
+            <a
+              href="#testimonials"
+              className="text-white hover:text-brand-blue transition-colors py-2"
+              onClick={() => setIsMobileMenuOpen(false)}
             >
               Testimonials
-            </Link>
-            <a
-              href="https://calendly.com/alan-muellegger/emotional-fitness-session"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block"
-            >
-              <Button className="w-full">Book a Session</Button>
             </a>
+            <a
+              href="#contact"
+              className="text-white hover:text-brand-blue transition-colors py-2"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Contact
+            </a>
+            <Button
+              className="bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-purple hover:to-brand-pink transition-all w-full"
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                window.open('https://calendly.com/alan-muellegger/emotional-fitness-session', '_blank');
+              }}
+            >
+              Book Now
+            </Button>
           </div>
-        </div>
+        </nav>
       )}
     </header>
   );

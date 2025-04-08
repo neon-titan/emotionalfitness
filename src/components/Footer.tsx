@@ -1,70 +1,77 @@
 
+import Logo from "./Logo";
+import { Separator } from "@/components/ui/separator";
+import { Instagram, Twitter, Facebook, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
+
   return (
-    <footer className="bg-gray-900 text-white pt-12 pb-8">
+    <footer className="bg-black pt-16 pb-8">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="col-span-1 md:col-span-2">
-            <Link to="/" className="text-2xl font-bold">
-              EMOTIONAL FITNESS
-            </Link>
-            <p className="mt-4 text-gray-400 max-w-md">
-              Helping individuals develop emotional resilience, manage stress effectively,
-              and achieve greater wellbeing through proven training techniques.
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-start mb-12 gap-8">
+          <div className="flex flex-col items-center md:items-start">
+            <div className="flex items-center gap-4">
+              <Logo size="sm" animate={false} />
+              <div>
+                <h3 className="text-xl font-bold gradient-text">EMOTIONAL FITNESS</h3>
+                <p className="text-white/70 text-sm">By Alan Muellegger</p>
+              </div>
+            </div>
+            <p className="text-white/60 mt-4 text-center md:text-left max-w-xs">
+              Optimize your emotions for peak performance in all areas of your life.
             </p>
           </div>
-          
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/" className="text-gray-400 hover:text-white transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/#features" className="text-gray-400 hover:text-white transition-colors">
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link to="/#about" className="text-gray-400 hover:text-white transition-colors">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link to="/#testimonials" className="text-gray-400 hover:text-white transition-colors">
-                  Testimonials
-                </Link>
-              </li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Legal</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link to="/terms-of-service" className="text-gray-400 hover:text-white transition-colors">
-                  Terms of Service
-                </Link>
-              </li>
-            </ul>
+
+          <div className="grid grid-cols-2 gap-8">
+            <div>
+              <h4 className="text-white font-semibold mb-4">Quick Links</h4>
+              <ul className="space-y-2">
+                <li><a href="#services" className="text-white/70 hover:text-brand-blue transition-colors">Services</a></li>
+                <li><a href="#about" className="text-white/70 hover:text-brand-blue transition-colors">About</a></li>
+                <li><a href="#testimonials" className="text-white/70 hover:text-brand-blue transition-colors">Testimonials</a></li>
+                <li>
+                  <a 
+                    href="https://calendly.com/alan-muellegger/emotional-fitness-session" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-white/70 hover:text-brand-blue transition-colors"
+                  >
+                    Book a Session
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-white font-semibold mb-4">Connect</h4>
+              <div className="flex space-x-4">
+                <a href="#" className="text-white/70 hover:text-brand-blue transition-colors">
+                  <Instagram size={20} />
+                </a>
+                <a href="#" className="text-white/70 hover:text-brand-blue transition-colors">
+                  <Twitter size={20} />
+                </a>
+                <a href="#" className="text-white/70 hover:text-brand-blue transition-colors">
+                  <Facebook size={20} />
+                </a>
+                <a href="#" className="text-white/70 hover:text-brand-blue transition-colors">
+                  <Linkedin size={20} />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-        
-        <div className="border-t border-gray-800 mt-12 pt-8">
-          <p className="text-center text-gray-500">
-            © {currentYear} Emotional Fitness Training. All rights reserved.
-          </p>
+
+        <Separator className="bg-white/10 my-8" />
+
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <p className="text-white/50 text-sm">© {currentYear} Emotional Fitness Training. All rights reserved.</p>
+          <div className="flex space-x-6 mt-4 md:mt-0">
+            <Link to="/privacy-policy" className="text-white/50 hover:text-white text-sm transition-colors">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="text-white/50 hover:text-white text-sm transition-colors">Terms of Service</Link>
+          </div>
         </div>
       </div>
     </footer>
