@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
@@ -41,7 +40,10 @@ const Header = () => {
           <a href="#contact" className="text-white hover:text-brand-blue transition-colors">
             Contact
           </a>
-          <Button className="bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-purple hover:to-brand-pink transition-all">
+          <Button 
+            className="bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-purple hover:to-brand-pink transition-all"
+            onClick={() => window.open('https://calendly.com/alan-muellegger/emotional-fitness-session', '_blank')}
+          >
             Book Now
           </Button>
         </nav>
@@ -89,7 +91,10 @@ const Header = () => {
             </a>
             <Button
               className="bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-purple hover:to-brand-pink transition-all w-full"
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                window.open('https://calendly.com/alan-muellegger/emotional-fitness-session', '_blank');
+              }}
             >
               Book Now
             </Button>

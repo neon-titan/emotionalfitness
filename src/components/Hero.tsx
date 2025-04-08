@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import Logo from "./Logo";
 
@@ -28,7 +27,11 @@ const Hero = () => {
           </p>
           
           <div className="mt-10 flex flex-col md:flex-row gap-6 md:gap-4">
-            <Button size="lg" className="bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-purple hover:to-brand-pink transition-all">
+            <Button 
+              size="lg" 
+              className="bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-purple hover:to-brand-pink transition-all"
+              onClick={() => window.open('https://calendly.com/alan-muellegger/emotional-fitness-session', '_blank')}
+            >
               Book a Session
             </Button>
             <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/5">
