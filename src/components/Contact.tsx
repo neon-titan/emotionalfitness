@@ -1,126 +1,96 @@
 
+import { Instagram, Twitter, Facebook, Linkedin, Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { useState } from "react";
-import { useToast } from "@/components/ui/use-toast";
-import { Mail, Phone, MapPin } from "lucide-react";
 
 const Contact = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: ""
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-    
-    // In a real application, you would send this data to your backend
-    toast({
-      title: "Message Sent",
-      description: "Thank you for reaching out. We'll get back to you shortly.",
-    });
-    
-    // Reset form
-    setFormData({ name: "", email: "", message: "" });
-  };
-
   return (
-    <section id="contact" className="py-20 bg-muted">
+    <section id="contact" className="py-20 bg-gradient-to-b from-black to-gray-900">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center gradient-text">Get in Touch</h2>
-        <p className="text-white/80 text-center max-w-3xl mx-auto mb-12">
-          Ready to optimize your emotional fitness? Contact us to schedule a consultation or learn more about our services.
-        </p>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <span className="gradient-text">Connect With Me</span>
+          </h2>
+          <p className="text-white/70 max-w-2xl mx-auto">
+            Ready to start your emotional fitness journey? Reach out directly or connect on social media.
+          </p>
+        </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div>
-            <h3 className="text-2xl font-bold mb-6 text-white">Contact Information</h3>
-            
-            <div className="space-y-6">
-              <div className="flex items-start">
-                <div className="mr-4 mt-1">
-                  <Mail className="w-5 h-5 text-brand-blue" />
-                </div>
+        <div className="flex flex-col md:flex-row justify-between items-center gap-10 max-w-4xl mx-auto">
+          <div className="w-full md:w-1/2">
+            <div className="flex flex-col space-y-6">
+              <div className="flex items-center gap-4">
+                <Mail size={24} className="text-brand-blue" />
                 <div>
-                  <h4 className="text-white font-medium">Email</h4>
-                  <p className="text-white/70">contact@emotionalfitness.com</p>
+                  <h3 className="text-white font-semibold">Email</h3>
+                  <a href="mailto:alan.muellegger@gmail.com" className="text-white/70 hover:text-brand-blue transition-colors">
+                    alan.muellegger@gmail.com
+                  </a>
                 </div>
               </div>
               
-              <div className="flex items-start">
-                <div className="mr-4 mt-1">
-                  <Phone className="w-5 h-5 text-brand-purple" />
-                </div>
+              <div className="flex items-center gap-4">
+                <Phone size={24} className="text-brand-blue" />
                 <div>
-                  <h4 className="text-white font-medium">Phone</h4>
-                  <p className="text-white/70">+1 (555) 123-4567</p>
+                  <h3 className="text-white font-semibold">Phone</h3>
+                  <a href="tel:+18476248389" className="text-white/70 hover:text-brand-blue transition-colors">
+                    (847) 624-8389
+                  </a>
                 </div>
-              </div>
-              
-              <div className="flex items-start">
-                <div className="mr-4 mt-1">
-                  <MapPin className="w-5 h-5 text-brand-pink" />
-                </div>
-                <div>
-                  <h4 className="text-white font-medium">Location</h4>
-                  <p className="text-white/70">123 Performance Drive, Suite 400<br />San Francisco, CA 94103</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <Input
-                  name="name"
-                  placeholder="Your Name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="bg-black/40 border-white/10 placeholder:text-white/40 text-white"
-                />
-              </div>
-              
-              <div>
-                <Input
-                  name="email"
-                  type="email"
-                  placeholder="Your Email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="bg-black/40 border-white/10 placeholder:text-white/40 text-white"
-                />
-              </div>
-              
-              <div>
-                <Textarea
-                  name="message"
-                  placeholder="Your Message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  className="bg-black/40 border-white/10 placeholder:text-white/40 text-white min-h-[150px]"
-                />
               </div>
               
               <Button 
-                type="submit" 
-                className="w-full bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-purple hover:to-brand-pink transition-all"
+                className="bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-purple hover:to-brand-pink transition-all w-full md:w-auto mt-4"
+                onClick={() => window.open('https://calendly.com/alan-muellegger/emotional-fitness-session', '_blank')}
+                size="lg"
               >
-                Send Message
+                Schedule a Session
               </Button>
-            </form>
+            </div>
+          </div>
+          
+          <div className="w-full md:w-1/2">
+            <h3 className="text-white font-semibold mb-6 text-center md:text-left">Follow on Social Media</h3>
+            <div className="grid grid-cols-2 gap-6">
+              <a 
+                href="https://www.instagram.com/muellegger/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center gap-3 p-4 bg-black/30 rounded-lg border border-white/10 hover:border-brand-blue/50 transition-all group"
+              >
+                <Instagram size={24} className="text-brand-blue" />
+                <span className="text-white group-hover:text-brand-blue transition-colors">Instagram</span>
+              </a>
+              
+              <a 
+                href="https://twitter.com/AMuellegger" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center gap-3 p-4 bg-black/30 rounded-lg border border-white/10 hover:border-brand-blue/50 transition-all group"
+              >
+                <Twitter size={24} className="text-brand-blue" />
+                <span className="text-white group-hover:text-brand-blue transition-colors">Twitter</span>
+              </a>
+              
+              <a 
+                href="https://www.linkedin.com/in/alan-muellegger" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center gap-3 p-4 bg-black/30 rounded-lg border border-white/10 hover:border-brand-blue/50 transition-all group"
+              >
+                <Linkedin size={24} className="text-brand-blue" />
+                <span className="text-white group-hover:text-brand-blue transition-colors">LinkedIn</span>
+              </a>
+              
+              <a 
+                href="https://www.facebook.com/alan.muellegger/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center gap-3 p-4 bg-black/30 rounded-lg border border-white/10 hover:border-brand-blue/50 transition-all group"
+              >
+                <Facebook size={24} className="text-brand-blue" />
+                <span className="text-white group-hover:text-brand-blue transition-colors">Facebook</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>

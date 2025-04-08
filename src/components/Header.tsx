@@ -1,6 +1,7 @@
+
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Instagram, Twitter, Facebook, Linkedin } from "lucide-react";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,26 +28,68 @@ const Header = () => {
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          <a href="#services" className="text-white hover:text-brand-blue transition-colors">
-            Services
-          </a>
-          <a href="#about" className="text-white hover:text-brand-blue transition-colors">
-            About
-          </a>
-          <a href="#testimonials" className="text-white hover:text-brand-blue transition-colors">
-            Testimonials
-          </a>
-          <a href="#contact" className="text-white hover:text-brand-blue transition-colors">
-            Contact
-          </a>
-          <Button 
-            className="bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-purple hover:to-brand-pink transition-all"
-            onClick={() => window.open('https://calendly.com/alan-muellegger/emotional-fitness-session', '_blank')}
-          >
-            Book Now
-          </Button>
-        </nav>
+        <div className="hidden md:flex items-center">
+          {/* Social Media Links - Desktop */}
+          <div className="flex space-x-3 mr-8">
+            <a 
+              href="https://www.instagram.com/muellegger/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-white/70 hover:text-brand-blue transition-colors"
+              aria-label="Instagram"
+            >
+              <Instagram size={18} />
+            </a>
+            <a 
+              href="https://twitter.com/AMuellegger" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-white/70 hover:text-brand-blue transition-colors"
+              aria-label="Twitter"
+            >
+              <Twitter size={18} />
+            </a>
+            <a 
+              href="https://www.facebook.com/alan.muellegger/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-white/70 hover:text-brand-blue transition-colors"
+              aria-label="Facebook"
+            >
+              <Facebook size={18} />
+            </a>
+            <a 
+              href="https://www.linkedin.com/in/alan-muellegger" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-white/70 hover:text-brand-blue transition-colors"
+              aria-label="LinkedIn"
+            >
+              <Linkedin size={18} />
+            </a>
+          </div>
+          
+          <nav className="flex items-center space-x-8">
+            <a href="#services" className="text-white hover:text-brand-blue transition-colors">
+              Services
+            </a>
+            <a href="#about" className="text-white hover:text-brand-blue transition-colors">
+              About
+            </a>
+            <a href="#testimonials" className="text-white hover:text-brand-blue transition-colors">
+              Testimonials
+            </a>
+            <a href="#contact" className="text-white hover:text-brand-blue transition-colors">
+              Contact
+            </a>
+            <Button 
+              className="bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-purple hover:to-brand-pink transition-all"
+              onClick={() => window.open('https://calendly.com/alan-muellegger/emotional-fitness-session', '_blank')}
+            >
+              Book Now
+            </Button>
+          </nav>
+        </div>
 
         {/* Mobile Menu Button */}
         <button
@@ -89,6 +132,47 @@ const Header = () => {
             >
               Contact
             </a>
+            
+            {/* Social Media Links - Mobile */}
+            <div className="flex space-x-5 py-2">
+              <a 
+                href="https://www.instagram.com/muellegger/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-white/70 hover:text-brand-blue transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <Instagram size={20} />
+              </a>
+              <a 
+                href="https://twitter.com/AMuellegger" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-white/70 hover:text-brand-blue transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <Twitter size={20} />
+              </a>
+              <a 
+                href="https://www.facebook.com/alan.muellegger/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-white/70 hover:text-brand-blue transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <Facebook size={20} />
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/alan-muellegger" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-white/70 hover:text-brand-blue transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <Linkedin size={20} />
+              </a>
+            </div>
+            
             <Button
               className="bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-purple hover:to-brand-pink transition-all w-full"
               onClick={() => {

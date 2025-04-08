@@ -1,6 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import Logo from "./Logo";
+import { Instagram, Twitter, Facebook, Linkedin } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -44,6 +45,42 @@ const Hero = () => {
             <p className="uppercase tracking-widest text-white/50 text-base mb-4 font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-white/80 to-white/60 animate-pulse">
               PEAK STATE | OPTIMIZATION | PASSION | DRIVE
             </p>
+          </div>
+          
+          {/* Social Icons Bar */}
+          <div className="mt-8 flex justify-center space-x-6">
+            <a 
+              href="https://www.instagram.com/muellegger/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-white/60 hover:text-brand-blue transition-colors"
+            >
+              <Instagram size={24} />
+            </a>
+            <a 
+              href="https://twitter.com/AMuellegger" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-white/60 hover:text-brand-blue transition-colors"
+            >
+              <Twitter size={24} />
+            </a>
+            <a 
+              href="https://www.facebook.com/alan.muellegger/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-white/60 hover:text-brand-blue transition-colors"
+            >
+              <Facebook size={24} />
+            </a>
+            <a 
+              href="https://www.linkedin.com/in/alan-muellegger" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-white/60 hover:text-brand-blue transition-colors"
+            >
+              <Linkedin size={24} />
+            </a>
           </div>
           
           <div className="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce">
