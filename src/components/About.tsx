@@ -34,12 +34,13 @@ const About = () => {
             <h6 className="text-brand-blue uppercase tracking-wider font-semibold mb-2">About</h6>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Alan Muellegger</h2>
             <p className="text-white/80 mb-4">
-              With over 15 years of experience as an emotional fitness coach, I've helped hundreds of clients 
-              break through mental barriers and achieve peak performance in their personal and professional lives.
+              With over 10 years of combined experience in sales leadership and emotional fitness coaching, I've dedicated my career to 
+              helping individuals transform their emotional states to achieve peak performance and fulfillment in all areas of life.
             </p>
             <p className="text-white/80 mb-6">
-              My unique approach combines cutting-edge neuroscience, practical psychology, and time-tested wisdom to help you 
-              optimize your emotional state for maximum performance, creativity, and fulfillment.
+              My Emotional Fitness system is not therapy, not mindset work, not woo — it's training. Like physical fitness but for your 
+              nervous system, emotional responses, and inner state. This approach has been particularly effective for coaches and entrepreneurs 
+              who want to build authentic businesses without manipulation or burnout.
             </p>
             
             <div className="grid grid-cols-2 gap-4 mb-8">
