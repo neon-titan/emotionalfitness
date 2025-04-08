@@ -1,5 +1,6 @@
 
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -52,8 +53,8 @@ const About = () => {
               </div>
             </div>
             
-            <Button className="bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-purple hover:to-brand-pink transition-all">
-              Learn More
+            <Button className="bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-purple hover:to-brand-pink transition-all" asChild>
+              <Link to="/about">Learn More</Link>
             </Button>
           </div>
         </div>

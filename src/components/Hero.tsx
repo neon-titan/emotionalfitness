@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import Logo from "./Logo";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -36,8 +37,8 @@ const Hero = () => {
             >
               Book a Session
             </Button>
-            <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/5">
-              Learn More
+            <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/5" asChild>
+              <Link to="/about">Learn More</Link>
             </Button>
           </div>
           
