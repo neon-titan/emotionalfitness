@@ -1,5 +1,4 @@
 
-import { useState } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -9,12 +8,12 @@ import {
 
 const faqItems = [
   {
-    question: "What exactly is Emotional Fitness Training?",
-    answer: "Emotional Fitness Training is a structured approach to developing your ability to regulate and optimize your emotional state. It's not therapy or traditional mindset work—it's practical training for your nervous system, emotional responses, and inner state, similar to how physical fitness trains your body."
+    question: "What is Emotional Fitness Training for Peak Performers?",
+    answer: "Emotional Fitness Training is a cutting-edge performance optimization system designed for high-achieving professionals who want to elevate their mental resilience, decision-making, and inner state management. It's a strategic approach to developing peak emotional capabilities that directly translate to enhanced professional performance, creativity, and leadership potential."
   },
   {
-    question: "How is this different from therapy or coaching?",
-    answer: "Unlike therapy, which often focuses on healing past trauma, or traditional coaching that focuses on strategy and accountability, Emotional Fitness Training emphasizes building specific emotional capabilities. We focus on developing skills to manage your emotional state in real-time, enhancing performance, creativity, and resilience."
+    question: "How is this different from traditional personal development?",
+    answer: "Unlike conventional coaching that focuses on strategy and external achievements, Emotional Fitness Training is a systematic approach to internal capability building. We focus on developing specific emotional skills that allow you to maintain composure, make clear decisions under pressure, and sustain high performance across challenging environments."
   },
   {
     question: "What happens in a typical session?",
@@ -31,10 +30,6 @@ const faqItems = [
   {
     question: "Do you offer online/remote sessions?",
     answer: "Yes, all sessions are available online via secure video conferencing, making it accessible regardless of your location. This flexibility allows clients to engage in sessions from their preferred environment."
-  },
-  {
-    question: "What's your cancellation policy?",
-    answer: "We understand that schedules can change. We request 24 hours notice for any cancellations or rescheduling. Late cancellations (less than 24 hours) or missed sessions are charged at the full session rate."
   }
 ];
 
@@ -46,7 +41,7 @@ const FAQ = () => {
           Frequently Asked Questions
         </h2>
         <p className="text-white/80 text-center max-w-3xl mx-auto mb-12">
-          Get answers to common questions about Emotional Fitness Training and how it can help you.
+          Get answers to common questions about Emotional Fitness Training and how it can help you elevate your performance.
         </p>
 
         <div className="max-w-3xl mx-auto">
@@ -85,3 +80,4 @@ const FAQ = () => {
 };
 
 export default FAQ;
+
