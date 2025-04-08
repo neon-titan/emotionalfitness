@@ -16,7 +16,7 @@ const PrivacyPolicy = () => {
             <section>
               <h2 className="text-2xl font-semibold mb-4 text-white">1. Introduction</h2>
               <p>
-                At Emotional Fitness&#174; Training, we respect your privacy and are committed to protecting your personal data. 
+                At Emotional Fitness&#8482; Training, we respect your privacy and are committed to protecting your personal data. 
                 This privacy policy will inform you about how we look after your personal data when you visit our website 
                 and tell you about your privacy rights and how the law protects you.
               </p>
