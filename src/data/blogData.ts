@@ -613,3 +613,64 @@ export const POSTS: Post[] = [
     `
   }
 ];
+
+// Helper functions for accessing blog posts
+export const getAllPosts = (): Post[] => {
+  return POSTS;
+};
+
+export const getPostsByCategory = (categorySlug: string): Post[] => {
+  return POSTS.filter(post => post.category.slug === categorySlug);
+};
+
+export const searchPosts = (query: string): Post[] => {
+  const lowerCaseQuery = query.toLowerCase();
+  return POSTS.filter(post => 
+    post.title.toLowerCase().includes(lowerCaseQuery) || 
+    post.excerpt.toLowerCase().includes(lowerCaseQuery) || 
+    post.content.toLowerCase().includes(lowerCaseQuery) ||
+    post.tags.some(tag => tag.toLowerCase().includes(lowerCaseQuery)) ||
+    post.keywords.some(keyword => keyword.toLowerCase().includes(lowerCaseQuery))
+  );
+};
+
+export const getPostBySlug = (slug: string): Post | null => {
+  return POSTS.find(post => post.slug === slug) || null;
+};
+
+export const getRelatedPosts = (currentPost: Post, limit: number = 3): Post[] => {
+  // Find posts in the same category excluding the current post
+  const sameCategoryPosts = POSTS.filter(
+    post => post.category.slug === currentPost.category.slug && post.id !== currentPost.id
+  );
+  
+  // If we have enough posts in the same category, return them
+  if (sameCategoryPosts.length >= limit) {
+    return sameCategoryPosts.slice(0, limit);
+  }
+  
+  // Otherwise, find posts with similar tags
+  const postsWithSimilarTags = POSTS.filter(post => 
+    post.id !== currentPost.id && 
+    post.category.slug !== currentPost.category.slug &&
+    post.tags.some(tag => currentPost.tags.includes(tag))
+  );
+  
+  // Combine and ensure no duplicates
+  const combined = [
+    ...sameCategoryPosts,
+    ...postsWithSimilarTags
+  ];
+  
+  const uniquePosts = Array.from(new Map(combined.map(post => [post.id, post])).values());
+  
+  // Return the requested number of posts
+  return uniquePosts.slice(0, limit);
+};
+
+export const getRecentPosts = (limit: number = 5): Post[] => {
+  // Sort posts by date (newest first) and return the specified number
+  return [...POSTS]
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, limit);
+};

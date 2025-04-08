@@ -5,7 +5,7 @@ import { Menu, X } from "lucide-react";
 
 import Logo from "./Logo";
 import { Button } from "@/components/ui/button";
-import { useMobile } from "@/hooks/use-mobile";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface NavLinkProps {
   to: string;
@@ -49,7 +49,7 @@ const MobileNavLink: React.FC<MobileNavLinkProps> = ({ to, children, onClick }) 
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { isMobile } = useMobile();
+  const isMobile = useIsMobile();
   const location = useLocation();
   const isActive = (path: string) => location.pathname.startsWith(path);
 
