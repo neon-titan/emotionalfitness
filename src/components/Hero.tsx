@@ -14,7 +14,9 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col items-center justify-center text-center">
-          <Logo size="xl" />
+          <div className="mb-6">
+            <Logo size="xl" />
+          </div>
           
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mt-8 leading-tight">
             <span className="gradient-text">EMOTIONAL FITNESS</span><br /> 
