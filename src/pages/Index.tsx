@@ -16,6 +16,7 @@ import { META } from "@/utils/constants";
  * 
  * Main landing page of the application.
  * Contains all section components in sequence.
+ * Each section is optimized for both user experience and search engines.
  * 
  * @component
  */
@@ -26,6 +27,7 @@ const Index = () => {
         title={META.title}
         description={META.description}
         keywords={META.keywords}
+        canonical="https://emotionalfitness.com/"
       />
       <Header />
       <Hero />

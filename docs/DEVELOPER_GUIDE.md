@@ -32,7 +32,17 @@ src/
 - **shadcn/ui**: Component library
 - **React Router**: Routing
 - **React Query**: Data fetching
+- **React Helmet Async**: SEO management
 - **Supabase**: Backend-as-a-Service
+
+## SEO Implementation
+
+The project uses React Helmet Async for managing SEO tags across the site:
+
+1. **SEO Component**: The `SEO.tsx` component centralizes all meta tag management
+2. **Per-page SEO**: Each page imports and uses the SEO component with custom props
+3. **robots.txt**: Controls search engine crawling behavior
+4. **Metadata Constants**: SEO content is stored in `constants.ts` for easy updates
 
 ## Component Design Principles
 
@@ -53,6 +63,7 @@ src/
 1. Create a new file in the `pages/` directory
 2. Add a route in `App.tsx`
 3. Update navigation links in the Header component if needed
+4. Add proper SEO implementation using the SEO component
 
 Example:
 
@@ -69,6 +80,7 @@ const NewPage = () => {
         title="Page Title"
         description="Page description"
         keywords="keyword1, keyword2"
+        canonical="https://emotionalfitness.com/page-path/"
       />
       <Header />
       {/* Page content */}
@@ -111,6 +123,15 @@ Common values (URLs, text, etc.) are centralized in `src/utils/constants.ts` to 
 5. **Centralize Constants**: Put all constants in one place for easy updates
 6. **Optimize Images**: Use compressed and appropriately sized images
 7. **Accessibility**: Ensure the site is accessible (proper contrast, semantic HTML, etc.)
+8. **SEO Optimization**: Use proper heading structure (h1, h2, etc.) and semantic HTML
+
+## Custom Domain Setup
+
+When connecting a custom domain:
+1. Add the domain in Lovable's project settings
+2. Set up the appropriate DNS records at your domain registrar
+3. Wait for DNS propagation (can take 24-48 hours)
+4. Verify connection in Lovable
 
 ## Troubleshooting
 
@@ -119,3 +140,11 @@ If you encounter issues:
 2. Verify that all imports resolve correctly
 3. Check that all required dependencies are installed
 4. Ensure that all components receive their required props
+
+## Performance Optimization
+
+The site uses several techniques to optimize performance:
+1. Image preloading for critical assets
+2. Code splitting via React Router
+3. Optimized TailwindCSS configuration
+4. Responsive image handling
