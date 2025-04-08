@@ -24,6 +24,13 @@ const testimonials = [
     role: "Entrepreneur",
     content: "The emotional optimization techniques I learned from Alan were game-changers for my business. I'm now able to maintain drive and passion even during challenging periods.",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+  },
+  {
+    id: 4,
+    name: "Karen Thekraken",
+    role: "Leadership Coach",
+    content: "Alan's emotional fitness training completely transformed how I handle stress and make decisions under pressure. Working with him took me to deeper levels of self-awareness than I thought possible. His guidance helped me navigate challenging situations with clarity and purpose, and my team has noticed a significant improvement in my leadership. I'm truly grateful for this journey.",
+    image: "/lovable-uploads/698b6461-b40d-447a-b58e-49ae155ad21a.png"
   }
 ];
 
