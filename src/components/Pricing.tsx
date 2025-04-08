@@ -72,7 +72,7 @@ const Pricing = () => {
               "Prioritized scheduling",
               "Tailored resources and exercises"
             ]}
-            cta="Book a Discovery Call"
+            cta="Connect Strategically"
           />
           
           <PricingCard
@@ -85,7 +85,7 @@ const Pricing = () => {
               "Weekly group training sessions",
               "Shared resources and practice sessions"
             ]}
-            cta="Book Group Session"
+            cta="Network & Elevate"
             popular={true}
           />
           
@@ -99,7 +99,7 @@ const Pricing = () => {
               "Personalized breakthrough protocol",
               "6 months of follow-up support"
             ]}
-            cta="Book VIP Intensive"
+            cta="Forge Your Path"
           />
         </div>
         
@@ -114,4 +114,3 @@ const Pricing = () => {
 };
 
 export default Pricing;
-
