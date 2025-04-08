@@ -7,16 +7,16 @@ const PricingCard = ({
   description, 
   features, 
   cta, 
-  popular = false,
-  ctaLink = "#contact"
+  popular = false
 }: { 
   title: string; 
   description: string; 
   features: string[]; 
   cta: string; 
   popular?: boolean;
-  ctaLink?: string;
 }) => {
+  const calendlyLink = "https://calendly.com/alan-muellegger/emotional-fitness-session";
+
   return (
     <div className={`relative bg-muted/20 rounded-xl p-8 border ${popular ? 'border-brand-purple' : 'border-white/10'} h-full flex flex-col`}>
       {popular && (
@@ -41,7 +41,7 @@ const PricingCard = ({
       <div className="mt-auto pt-4">
         <Button 
           className={`w-full ${popular ? 'bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-purple hover:to-brand-pink' : 'bg-white/10 hover:bg-white/20'} transition-all`}
-          onClick={() => window.location.href = ctaLink}
+          onClick={() => window.open(calendlyLink, '_blank')}
         >
           {cta}
         </Button>
@@ -73,7 +73,6 @@ const Pricing = () => {
               "Tailored resources and exercises"
             ]}
             cta="Book a Discovery Call"
-            ctaLink="https://calendly.com/alan-muellegger/emotional-fitness-session"
           />
           
           <PricingCard
@@ -86,7 +85,7 @@ const Pricing = () => {
               "Weekly group training sessions",
               "Shared resources and practice sessions"
             ]}
-            cta="Join the Waitlist"
+            cta="Book Group Session"
             popular={true}
           />
           
@@ -100,7 +99,7 @@ const Pricing = () => {
               "Personalized breakthrough protocol",
               "6 months of follow-up support"
             ]}
-            cta="Apply Now"
+            cta="Book VIP Intensive"
           />
         </div>
         
@@ -115,3 +114,4 @@ const Pricing = () => {
 };
 
 export default Pricing;
+
