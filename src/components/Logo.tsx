@@ -23,7 +23,7 @@ const Logo = ({ size = "md", animate = true }: LogoProps) => {
   return (
     <div className={`${sizeClasses[size]} relative ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-700 rounded-full overflow-hidden`}>
       <img 
-        src="/lovable-uploads/c1196310-1a24-4bd0-a6b3-959e052d81e7.png" 
+        src="/lovable-uploads/1db85eaa-05a2-472a-b647-749b000a7f41.png" 
         alt="Emotional Fitness Training Logo" 
         className={`w-full h-full object-contain ${animate ? 'animate-pulse-glow' : ''}`}
       />
