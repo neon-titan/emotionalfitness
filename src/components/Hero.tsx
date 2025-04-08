@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import Logo from "./Logo";
 import { useState } from "react";
@@ -26,7 +27,7 @@ const Hero = () => {
           </h1>
           
           <p className="text-white/80 mt-6 text-xl max-w-2xl">
-            Optimize your emotions for peak performance.
+            Optimize your emotions for peak performance. Boutique coaching for high performers seeking breakthrough results in business and life.
           </p>
           
           <div className="mt-10 flex flex-col md:flex-row gap-6 md:gap-4">
@@ -44,7 +45,7 @@ const Hero = () => {
           
           <div className="mt-16 md:mt-24">
             <p className="uppercase tracking-widest text-white/50 text-base mb-4 font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-white/80 to-white/60 animate-pulse">
-              PEAK STATE | OPTIMIZATION | PASSION | DRIVE
+              FOR ENTREPRENEURS | EXECUTIVES | LEADERS | HIGH PERFORMERS
             </p>
           </div>
           

@@ -15,8 +15,8 @@ const Index = () => {
     <div className="min-h-screen bg-black text-white">
       <SEO 
         title="Emotional Fitness Training | Peak Performance | Alan Muellegger"
-        description="Optimize your emotions for peak performance. Boutique coaching for high performers seeking breakthrough results in business and life."
-        keywords="emotional fitness, peak performance, high performer coaching, emotional optimization, Alan Muellegger"
+        description="Optimize your emotions for peak performance. Boutique coaching for high performers, entrepreneurs, and executives seeking breakthrough results in business and life."
+        keywords="emotional fitness, peak performance, high performer coaching, entrepreneur coaching, executive coaching, emotional optimization, Alan Muellegger"
       />
       <Header />
       <Hero />

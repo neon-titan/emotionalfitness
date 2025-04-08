@@ -58,13 +58,13 @@ const Pricing = () => {
           Elevate Your Performance
         </h2>
         <p className="text-white/80 text-center max-w-3xl mx-auto mb-12">
-          Customized emotional fitness solutions tailored to your unique needs and goals.
+          Customized emotional fitness solutions tailored for high-performing entrepreneurs, executives, and leaders.
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <PricingCard
             title="Tailored One-on-One"
-            description="Boutique coaching experience customized to your specific needs and goals."
+            description="Boutique coaching experience customized to your specific entrepreneurial challenges and leadership goals."
             features={[
               "Personalized emotional fitness assessment",
               "Custom-designed training protocols",
@@ -78,7 +78,7 @@ const Pricing = () => {
           
           <PricingCard
             title="Group Training"
-            description="Immersive community-based experience with collaborative learning and growth."
+            description="Immersive community-based experience with collaborative methodology and peer accountability among high performers."
             features={[
               "Structured emotional fitness methodology",
               "Peer learning and accountability",
@@ -92,7 +92,7 @@ const Pricing = () => {
           
           <PricingCard
             title="VIP Intensive"
-            description="Exclusive in-person transformative experience for breakthrough results."
+            description="Exclusive in-person transformative experience for breakthrough results in your leadership and entrepreneurial journey."
             features={[
               "Two full days of immersive training",
               "Luxury retreat setting",
@@ -106,7 +106,7 @@ const Pricing = () => {
         
         <div className="mt-12 text-center">
           <p className="text-white/60 italic">
-            "Investment in emotional fitness pays dividends across every area of your life."
+            "Investment in emotional fitness pays dividends across every area of your life and business."
           </p>
         </div>
       </div>

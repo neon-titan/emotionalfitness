@@ -5,22 +5,22 @@ import { Brain, Heart, Zap, Target } from "lucide-react";
 const services = [
   {
     title: "Peak State",
-    description: "Achieve optimal emotional and mental states that unlock your full potential. Emotional Fitness Training helps you access high-performance flow in both your personal and professional life — without burnout or collapse.",
+    description: "Achieve optimal emotional and mental states that unlock your full potential. Emotional Fitness Training helps high-performing entrepreneurs and executives access peak flow in demanding situations — without burnout or collapse.",
     icon: <Zap className="w-10 h-10 text-brand-blue" />
   },
   {
     title: "Optimization",
-    description: "Fine-tune your emotional responses and rewire mental frameworks to enhance creativity, presence, and decision-making. This training turns reactive patterns into conscious clarity.",
+    description: "Fine-tune your emotional responses and rewire mental frameworks to enhance decision-making under pressure. This training transforms reactive patterns into strategic clarity for leaders who need to perform at their best.",
     icon: <Brain className="w-10 h-10 text-brand-purple" />
   },
   {
     title: "Passion",
-    description: "Reconnect with your deepest motivations and learn to channel raw emotion into purpose-driven momentum. This is how you fuel consistent action, not through hype, but through aligned energy.",
+    description: "Reconnect with your deepest entrepreneurial motivations and learn to channel raw emotion into market-moving momentum. This is how successful founders and executives fuel consistent action, not through hype, but through aligned energy.",
     icon: <Heart className="w-10 h-10 text-brand-pink" />
   },
   {
     title: "Drive",
-    description: "Develop long-term emotional stamina and resilience. You'll build the internal grit required to pursue your vision with unwavering focus — no matter what resistance shows up.",
+    description: "Develop long-term emotional stamina and resilience essential for high-stakes leadership roles. You'll build the internal grit required to pursue ambitious business visions with unwavering focus — no matter what market challenges arise.",
     icon: <Target className="w-10 h-10 text-brand-blue" />
   }
 ];
@@ -31,8 +31,8 @@ const Services = () => {
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center gradient-text">Our Services</h2>
         <p className="text-white/80 text-center max-w-3xl mx-auto mb-12">
-          Comprehensive emotional fitness training designed to optimize your mental and emotional performance 
-          across all areas of life.
+          Comprehensive emotional fitness training designed specifically for high-performing entrepreneurs, 
+          executives, and leaders who need to maintain peak performance in high-pressure environments.
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

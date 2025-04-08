@@ -10,9 +10,9 @@ interface SEOProps {
 }
 
 const SEO = ({ 
-  title = "Emotional Fitness Training | Alan Muellegger",
-  description = "Unlock peak performance through emotional fitness training. Optimize your mental and emotional state for success in business and life.",
-  keywords = "emotional fitness, peak performance, coaching, Alan Muellegger, mental training, emotional optimization",
+  title = "Emotional Fitness Training | Peak Performance | Alan Muellegger",
+  description = "Optimize your emotions for peak performance. Boutique coaching for high performers seeking breakthrough results in business and life.",
+  keywords = "emotional fitness, peak performance, high performer coaching, emotional optimization, Alan Muellegger",
   image = "/lovable-uploads/29dbc926-49ae-496e-978b-0e8a5705b464.png",
   url = "https://emotionalfitness.com",
 }: SEOProps) => {
