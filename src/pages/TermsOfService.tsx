@@ -62,7 +62,20 @@ const TermsOfService = () => {
             <Separator className="bg-white/10" />
             
             <section>
-              <h2 className="text-2xl font-semibold mb-4 text-white">5. Changes to These Terms</h2>
+              <h2 className="text-2xl font-semibold mb-4 text-white">5. Contact Information</h2>
+              <p>
+                If you have any questions about these Terms of Service, please contact us:
+              </p>
+              <p className="mt-2">
+                Email: <a href="mailto:alan.muellegger@gmail.com" className="text-brand-blue hover:underline">alan.muellegger@gmail.com</a><br />
+                Phone: <a href="tel:+18476248389" className="text-brand-blue hover:underline">(847) 624-8389</a>
+              </p>
+            </section>
+            
+            <Separator className="bg-white/10" />
+            
+            <section>
+              <h2 className="text-2xl font-semibold mb-4 text-white">6. Changes to These Terms</h2>
               <p>
                 We reserve the right to make changes to these terms and conditions at any time. The updated version will be indicated by an updated "Last updated" date.
               </p>

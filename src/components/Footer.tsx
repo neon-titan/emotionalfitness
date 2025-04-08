@@ -1,7 +1,7 @@
 
 import Logo from "./Logo";
 import { Separator } from "@/components/ui/separator";
-import { Instagram, Twitter, Facebook, Linkedin } from "lucide-react";
+import { Instagram, Twitter, Facebook, Linkedin, Mail, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -24,7 +24,7 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
             <div>
               <h4 className="text-white font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2">
@@ -45,7 +45,23 @@ const Footer = () => {
             </div>
 
             <div>
-              <h4 className="text-white font-semibold mb-4">Connect</h4>
+              <h4 className="text-white font-semibold mb-4">Contact</h4>
+              <ul className="space-y-2">
+                <li className="flex items-center gap-2">
+                  <Mail size={16} className="text-white/70" />
+                  <a href="mailto:alan.muellegger@gmail.com" className="text-white/70 hover:text-brand-blue transition-colors">
+                    alan.muellegger@gmail.com
+                  </a>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Phone size={16} className="text-white/70" />
+                  <a href="tel:+18476248389" className="text-white/70 hover:text-brand-blue transition-colors">
+                    (847) 624-8389
+                  </a>
+                </li>
+              </ul>
+              
+              <h4 className="text-white font-semibold mt-6 mb-4">Connect</h4>
               <div className="flex space-x-4">
                 <a href="#" className="text-white/70 hover:text-brand-blue transition-colors">
                   <Instagram size={20} />

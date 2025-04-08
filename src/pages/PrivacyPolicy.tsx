@@ -61,9 +61,8 @@ const PrivacyPolicy = () => {
                 If you have any questions about this privacy policy or our privacy practices, please contact us at:
               </p>
               <p className="mt-2">
-                Email: contact@emotionalfitness.com<br />
-                Phone: +1 (555) 123-4567<br />
-                Address: 123 Performance Drive, Suite 400, San Francisco, CA 94103
+                Email: <a href="mailto:alan.muellegger@gmail.com" className="text-brand-blue hover:underline">alan.muellegger@gmail.com</a><br />
+                Phone: <a href="tel:+18476248389" className="text-brand-blue hover:underline">(847) 624-8389</a>
               </p>
             </section>
             
