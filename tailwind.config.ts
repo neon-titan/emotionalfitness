@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -130,6 +129,9 @@ export default {
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
 				heading: ['Montserrat', 'sans-serif']
+			},
+			textColor: {
+				'chrome': 'linear-gradient(to right, #c0c0c0, #ffffff, #808080)',
 			}
 		}
 	},
