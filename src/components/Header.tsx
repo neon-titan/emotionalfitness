@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { Menu, X, Instagram, Twitter, Facebook, Linkedin } from "lucide-react";
@@ -24,7 +23,7 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         <a href="/" className="text-white text-xl font-bold">
-          <span className="gradient-text">EMOTIONAL FITNESS&#8482;</span>
+          <span className="gradient-text">LETS GET IT, FAM!&#8482;</span>
         </a>
 
         {/* Desktop Navigation */}
