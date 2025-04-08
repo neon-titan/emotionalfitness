@@ -1,15 +1,30 @@
 
+import { lazy, Suspense } from "react";
 import SEO from "@/components/SEO";
 import Header from "@/components/layout/Header";
 import Hero from "@/components/sections/Hero";
-import Services from "@/components/Services";
-import About from "@/components/About";
-import Testimonials from "@/components/Testimonials";
-import FAQ from "@/components/FAQ";
-import Pricing from "@/components/Pricing";
-import Contact from "@/components/sections/Contact";
-import Footer from "@/components/Footer";
 import { META } from "@/utils/constants";
+import { Skeleton } from "@/components/ui/skeleton";
+
+// Lazy load non-critical sections
+const Services = lazy(() => import("@/components/Services"));
+const About = lazy(() => import("@/components/About"));
+const Testimonials = lazy(() => import("@/components/Testimonials"));
+const FAQ = lazy(() => import("@/components/FAQ"));
+const Pricing = lazy(() => import("@/components/Pricing"));
+const Contact = lazy(() => import("@/components/sections/Contact"));
+const Footer = lazy(() => import("@/components/Footer"));
+
+// Skeleton loaders for lazy-loaded components
+const SectionSkeleton = () => (
+  <div className="w-full py-16">
+    <Skeleton className="w-48 h-10 mx-auto mb-8" />
+    <div className="flex flex-col md:flex-row gap-8 max-w-6xl mx-auto px-4">
+      <Skeleton className="w-full h-64" />
+      <Skeleton className="w-full h-64" />
+    </div>
+  </div>
+);
 
 /**
  * Index Page Component
@@ -31,13 +46,35 @@ const Index = () => {
       />
       <Header />
       <Hero />
-      <Services />
-      <About />
-      <Testimonials />
-      <Pricing />
-      <FAQ />
-      <Contact />
-      <Footer />
+      
+      {/* Lazy loaded sections with suspense fallbacks */}
+      <Suspense fallback={<SectionSkeleton />}>
+        <Services />
+      </Suspense>
+      
+      <Suspense fallback={<SectionSkeleton />}>
+        <About />
+      </Suspense>
+      
+      <Suspense fallback={<SectionSkeleton />}>
+        <Testimonials />
+      </Suspense>
+      
+      <Suspense fallback={<SectionSkeleton />}>
+        <Pricing />
+      </Suspense>
+      
+      <Suspense fallback={<SectionSkeleton />}>
+        <FAQ />
+      </Suspense>
+      
+      <Suspense fallback={<SectionSkeleton />}>
+        <Contact />
+      </Suspense>
+      
+      <Suspense fallback={<SectionSkeleton />}>
+        <Footer />
+      </Suspense>
     </div>
   );
 };
