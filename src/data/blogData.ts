@@ -609,4 +609,7 @@ export const POSTS: Post[] = [
         <li><strong>Find practice partners</strong> - Share the journey with friends or colleagues</li>
       </ol>
       
-      <p>Remember that consistency matters more than duration. A 2-minute practice done
+      <p>Remember that consistency matters more than duration. A 2-minute practice done daily is far more effective than a 30-minute practice done irregularly. Start where you are, and gradually build your emotional resilience muscle over time.</p>
+    `
+  }
+];
