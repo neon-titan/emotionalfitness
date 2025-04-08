@@ -1,4 +1,3 @@
-
 # Emotional Fitness Website - Standard Operating Procedures
 
 This document provides step-by-step instructions for common tasks on the Emotional Fitness website. It's designed for team members who may not have technical experience with web development.
@@ -11,6 +10,7 @@ This document provides step-by-step instructions for common tasks on the Emotion
 4. [Social Media Integration](#social-media-integration)
 5. [Booking System](#booking-system)
 6. [Troubleshooting](#troubleshooting)
+7. [Domain and Hosting Management](#domain-and-hosting-management)
 
 ---
 
@@ -210,4 +210,3 @@ Regular maintenance occurs on:
 ---
 
 *Last Updated: April 8, 2025*
-
