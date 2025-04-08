@@ -8,6 +8,10 @@ interface LogoProps {
 
 const Logo = ({ size = "md", animate = true }: LogoProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [logoError, setLogoError] = useState(false);
+  
+  // Use a transparent background version of the logo if available
+  // Or fallback to the original logo
   const logoSrc = "/lovable-uploads/1db85eaa-05a2-472a-b647-749b000a7f41.png";
   
   const sizeClasses = {
@@ -18,12 +22,16 @@ const Logo = ({ size = "md", animate = true }: LogoProps) => {
   };
 
   return (
-    <div className={`${sizeClasses[size]} relative ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-700 rounded-full overflow-hidden`}>
+    <div className={`${sizeClasses[size]} relative ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300 rounded-full overflow-hidden ${!logoError ? 'bg-transparent' : 'bg-gray-100'}`}>
       <img 
         src={logoSrc} 
         alt="Emotional Fitness Training Logo" 
         className={`w-full h-full object-contain ${animate ? 'animate-pulse-glow' : ''}`}
         onLoad={() => setIsLoaded(true)}
+        onError={() => {
+          setLogoError(true);
+          setIsLoaded(true);
+        }}
       />
     </div>
   );
