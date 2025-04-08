@@ -1,4 +1,3 @@
-
 import Logo from "./Logo";
 import { Separator } from "@/components/ui/separator";
 import { Instagram, Twitter, Facebook, Linkedin, Mail, Phone } from "lucide-react";

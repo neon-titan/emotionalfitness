@@ -1,7 +1,9 @@
+
 import { Button } from "@/components/ui/button";
 import Logo from "./Logo";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+
 const Hero = () => {
   return <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden bg-black">
       {/* Background gradient effects */}
