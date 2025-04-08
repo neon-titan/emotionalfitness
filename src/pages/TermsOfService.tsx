@@ -1,4 +1,3 @@
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Separator } from "@/components/ui/separator";
@@ -16,7 +15,7 @@ const TermsOfService = () => {
             <section>
               <h2 className="text-2xl font-semibold mb-4 text-white">1. Introduction</h2>
               <p>
-                Welcome to Emotional Fitness Training. These terms and conditions outline the rules and regulations for the use of our website and services.
+                Welcome to Emotional Fitness&#174; Training. These terms and conditions outline the rules and regulations for the use of our website and services.
               </p>
               <p className="mt-2">
                 By accessing this website, we assume you accept these terms and conditions. Do not continue to use our website if you do not agree to take all of the terms and conditions stated on this page.
