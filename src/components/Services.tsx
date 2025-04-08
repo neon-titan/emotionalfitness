@@ -5,22 +5,22 @@ import { Brain, Heart, Zap, Target } from "lucide-react";
 const services = [
   {
     title: "Peak State",
-    description: "Achieve optimal emotional and mental states for high performance in your personal and professional life.",
+    description: "Achieve optimal emotional and mental states that unlock your full potential. Emotional Fitness Training helps you access high-performance flow in both your personal and professional life — without burnout or collapse.",
     icon: <Zap className="w-10 h-10 text-brand-blue" />
   },
   {
     title: "Optimization",
-    description: "Fine-tune your emotional responses and mental frameworks to enhance decision-making and creativity.",
+    description: "Fine-tune your emotional responses and rewire mental frameworks to enhance creativity, presence, and decision-making. This training turns reactive patterns into conscious clarity.",
     icon: <Brain className="w-10 h-10 text-brand-purple" />
   },
   {
     title: "Passion",
-    description: "Reconnect with your core motivations and channel emotions to fuel sustainable drive and enthusiasm.",
+    description: "Reconnect with your deepest motivations and learn to channel raw emotion into purpose-driven momentum. This is how you fuel consistent action, not through hype, but through aligned energy.",
     icon: <Heart className="w-10 h-10 text-brand-pink" />
   },
   {
     title: "Drive",
-    description: "Develop consistent emotional stamina and resilience to pursue long-term goals with unwavering focus.",
+    description: "Develop long-term emotional stamina and resilience. You'll build the internal grit required to pursue your vision with unwavering focus — no matter what resistance shows up.",
     icon: <Target className="w-10 h-10 text-brand-blue" />
   }
 ];
