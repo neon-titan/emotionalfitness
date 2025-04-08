@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import Logo from "./Logo";
 import { useState } from "react";
@@ -14,6 +13,7 @@ const Hero = () => {
         <div className="absolute top-1/2 right-1/3 w-72 h-72 bg-brand-pink/20 rounded-full filter blur-[100px]"></div>
       </div>
 
+      
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col items-center justify-center text-center">
           <div className="mb-6">
@@ -65,6 +65,15 @@ const Hero = () => {
                 <path d="M7 6l5 5 5-5"></path>
               </svg>
             </a>
+          </div>
+          
+          <div className="mt-16 md:mt-24 text-center w-full">
+            <p className="text-white/50 text-xs mt-4">
+              By engaging with our services, you agree to our{' '}
+              <Link to="/legal-disclaimers" className="underline hover:text-brand-blue">
+                Legal Disclaimers
+              </Link>
+            </p>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
-
 import { Instagram, Twitter, Facebook, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Contact = () => {
   return (
@@ -67,6 +67,15 @@ const Contact = () => {
                 <span className="text-white group-hover:text-brand-blue transition-colors">Facebook</span>
               </a>
             </div>
+          </div>
+          
+          <div className="text-center mt-4">
+            <p className="text-white/70 text-sm mb-2">
+              By scheduling a session, you agree to our{' '}
+              <Link to="/legal-disclaimers" className="underline hover:text-brand-blue">
+                Legal Disclaimers
+              </Link>
+            </p>
           </div>
         </div>
       </div>
