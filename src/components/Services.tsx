@@ -1,27 +1,27 @@
 
 import { Card } from "@/components/ui/card";
-import { Brain, Heart, Zap, Target } from "lucide-react";
+import { Sparkles, Lightbulb, Flame, Compass } from "lucide-react";
 
 const services = [
   {
     title: "Peak State",
     description: "Achieve optimal emotional and mental states that unlock your full potential. Emotional Fitness Training helps high-performing entrepreneurs and executives access peak flow in demanding situations — without burnout or collapse.",
-    icon: <Zap className="w-10 h-10 text-brand-blue" />
+    icon: <Sparkles className="w-12 h-12 text-brand-blue stroke-[1.5px]" />
   },
   {
     title: "Optimization",
     description: "Fine-tune your emotional responses and rewire mental frameworks to enhance decision-making under pressure. This training transforms reactive patterns into strategic clarity for leaders who need to perform at their best.",
-    icon: <Brain className="w-10 h-10 text-brand-purple" />
+    icon: <Lightbulb className="w-12 h-12 text-brand-purple stroke-[1.5px]" />
   },
   {
     title: "Passion",
     description: "Reconnect with your deepest entrepreneurial motivations and learn to channel raw emotion into market-moving momentum. This is how successful founders and executives fuel consistent action, not through hype, but through aligned energy.",
-    icon: <Heart className="w-10 h-10 text-brand-pink" />
+    icon: <Flame className="w-12 h-12 text-brand-pink stroke-[1.5px]" />
   },
   {
     title: "Drive",
     description: "Develop long-term emotional stamina and resilience essential for high-stakes leadership roles. You'll build the internal grit required to pursue ambitious business visions with unwavering focus — no matter what market challenges arise.",
-    icon: <Target className="w-10 h-10 text-brand-blue" />
+    icon: <Compass className="w-12 h-12 text-brand-blue stroke-[1.5px]" />
   }
 ];
 
@@ -39,8 +39,8 @@ const Services = () => {
           {services.map((service, index) => (
             <Card key={index} className="bg-muted border-none p-6 hover:bg-muted/80 transition-colors gradient-border">
               <div className="flex flex-col items-center text-center">
-                <div className="mb-4">{service.icon}</div>
-                <h3 className="text-xl font-bold mb-2 text-white">{service.title}</h3>
+                <div className="mb-6 transform hover:scale-110 transition-transform duration-300">{service.icon}</div>
+                <h3 className="text-xl font-bold mb-3 text-white">{service.title}</h3>
                 <p className="text-white/70">{service.description}</p>
               </div>
             </Card>
