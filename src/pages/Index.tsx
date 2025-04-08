@@ -1,22 +1,31 @@
 
-import Header from "@/components/Header";
-import Hero from "@/components/Hero";
+import SEO from "@/components/SEO";
+import Header from "@/components/layout/Header";
+import Hero from "@/components/sections/Hero";
 import Services from "@/components/Services";
 import About from "@/components/About";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import Pricing from "@/components/Pricing";
-import Contact from "@/components/Contact";
+import Contact from "@/components/sections/Contact";
 import Footer from "@/components/Footer";
-import SEO from "@/components/SEO";
+import { META } from "@/utils/constants";
 
+/**
+ * Index Page Component
+ * 
+ * Main landing page of the application.
+ * Contains all section components in sequence.
+ * 
+ * @component
+ */
 const Index = () => {
   return (
     <div className="min-h-screen bg-black text-white">
       <SEO 
-        title="Emotional Fitness Training | Peak Performance | Alan Muellegger"
-        description="Optimize your emotions for peak performance. Boutique coaching for high performers, entrepreneurs, and executives seeking breakthrough results in business and life."
-        keywords="emotional fitness, peak performance, high performer coaching, entrepreneur coaching, executive coaching, emotional optimization, Alan Muellegger"
+        title={META.title}
+        description={META.description}
+        keywords={META.keywords}
       />
       <Header />
       <Hero />
