@@ -9,24 +9,35 @@ const About = () => {
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <div className="lg:w-1/2">
             <div className="relative rounded-xl overflow-hidden group transition-all duration-300 hover:scale-[1.01] hover:shadow-xl">
-              {/* Decorative elements */}
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/10 via-brand-purple/10 to-brand-pink/10 z-10"></div>
+              {/* Chrome effect overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#c0c0c0]/30 via-[#ffffff]/20 to-[#808080]/30 mix-blend-overlay z-20 pointer-events-none"></div>
               
-              {/* Corner accents */}
-              <div className="absolute top-0 left-0 w-16 h-16 border-t-4 border-l-4 border-brand-blue rounded-tl-xl z-20"></div>
-              <div className="absolute top-0 right-0 w-16 h-16 border-t-4 border-r-4 border-brand-purple rounded-tr-xl z-20"></div>
-              <div className="absolute bottom-0 left-0 w-16 h-16 border-b-4 border-l-4 border-brand-purple rounded-bl-xl z-20"></div>
-              <div className="absolute bottom-0 right-0 w-16 h-16 border-b-4 border-r-4 border-brand-pink rounded-br-xl z-20"></div>
+              {/* Metallic highlight */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-black/30 z-20 pointer-events-none"></div>
               
-              {/* Subtle glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-blue/5 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+              {/* Hover glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-brand-blue/0 via-brand-blue/10 to-brand-blue/0 z-30 opacity-0 group-hover:opacity-100 transition-all duration-700 animate-pulse"></div>
               
-              {/* Main image */}
-              <img 
-                src="/lovable-uploads/29dbc926-49ae-496e-978b-0e8a5705b464.png" 
-                alt="Alan Muellegger - Emotional Fitness Coach" 
-                className="w-full h-auto object-cover z-0 aspect-[4/5]" 
-              />
+              {/* Edge highlight */}
+              <div className="absolute inset-0 border-2 border-white/20 rounded-xl z-20 pointer-events-none"></div>
+              
+              {/* Corner accents with chrome effect */}
+              <div className="absolute top-0 left-0 w-16 h-16 border-t-4 border-l-4 border-gradient-to-br from-white via-brand-blue to-white rounded-tl-xl z-30"></div>
+              <div className="absolute top-0 right-0 w-16 h-16 border-t-4 border-r-4 border-gradient-to-bl from-white via-brand-purple to-white rounded-tr-xl z-30"></div>
+              <div className="absolute bottom-0 left-0 w-16 h-16 border-b-4 border-l-4 border-gradient-to-tr from-white via-brand-purple to-white rounded-bl-xl z-30"></div>
+              <div className="absolute bottom-0 right-0 w-16 h-16 border-b-4 border-r-4 border-gradient-to-tl from-white via-brand-pink to-white rounded-br-xl z-30"></div>
+              
+              {/* Main image with shadow and reflection */}
+              <div className="relative">
+                <img 
+                  src="/lovable-uploads/29dbc926-49ae-496e-978b-0e8a5705b464.png" 
+                  alt="Alan Muellegger - Emotional Fitness Coach" 
+                  className="w-full h-auto object-cover z-0 aspect-[4/5] shadow-[0_10px_25px_-5px_rgba(0,0,0,0.3)]" 
+                />
+                
+                {/* Bottom reflection gradient */}
+                <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white/10 to-transparent mix-blend-overlay"></div>
+              </div>
             </div>
           </div>
           
