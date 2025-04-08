@@ -23,7 +23,7 @@ const testimonials = [
     name: "Rachel Gubler",
     role: "Therapeutic Nutritional Counselor/Holistic Iridologist at Rachel Gubler Coaching",
     content: "Alan did not disappoint. Those two days were absolutely epic — playful, energizing, and deeply clarifying. I walked away with tangible tools, a renewed sense of purpose, and a connection to what's truly possible. Alan's work is emotionally potent, and his presence is pure service.",
-    image: "/lovable-uploads/c1196310-1a24-4bd0-a6b3-959e052d81e7.png"
+    image: "/lovable-uploads/004a4543-00f5-4a36-be0a-5ddb22014d59.png"
   }
 ];
 
