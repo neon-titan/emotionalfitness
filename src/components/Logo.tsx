@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from "react";
+import { removeBackground, loadImage } from "../utils/imageUtils";
 
 interface LogoProps {
   size?: "sm" | "md" | "lg" | "xl";
@@ -7,9 +8,21 @@ interface LogoProps {
 }
 
 const Logo = ({ size = "md", animate = true }: LogoProps) => {
+  const [logoSrc, setLogoSrc] = useState("/lovable-uploads/1db85eaa-05a2-472a-b647-749b000a7f41.png");
   const [isLoaded, setIsLoaded] = useState(false);
   
   useEffect(() => {
+    const removeBackgroundFromLogo = async () => {
+      try {
+        const img = await loadImage(await fetch(logoSrc).then(r => r.blob()));
+        const backgroundRemovedBlob = await removeBackground(img);
+        setLogoSrc(URL.createObjectURL(backgroundRemovedBlob));
+      } catch (error) {
+        console.error("Background removal failed:", error);
+      }
+    };
+
+    removeBackgroundFromLogo();
     setIsLoaded(true);
   }, []);
 
@@ -23,7 +36,7 @@ const Logo = ({ size = "md", animate = true }: LogoProps) => {
   return (
     <div className={`${sizeClasses[size]} relative ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-700 rounded-full overflow-hidden`}>
       <img 
-        src="/lovable-uploads/1db85eaa-05a2-472a-b647-749b000a7f41.png" 
+        src={logoSrc} 
         alt="Emotional Fitness Training Logo" 
         className={`w-full h-full object-contain ${animate ? 'animate-pulse-glow' : ''}`}
       />
