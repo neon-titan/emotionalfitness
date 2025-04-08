@@ -2,6 +2,7 @@
 import Logo from "./Logo";
 import { Separator } from "@/components/ui/separator";
 import { Instagram, Twitter, Facebook, Linkedin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -30,7 +31,16 @@ const Footer = () => {
                 <li><a href="#services" className="text-white/70 hover:text-brand-blue transition-colors">Services</a></li>
                 <li><a href="#about" className="text-white/70 hover:text-brand-blue transition-colors">About</a></li>
                 <li><a href="#testimonials" className="text-white/70 hover:text-brand-blue transition-colors">Testimonials</a></li>
-                <li><a href="#contact" className="text-white/70 hover:text-brand-blue transition-colors">Contact</a></li>
+                <li>
+                  <a 
+                    href="https://calendly.com/alan-muellegger/emotional-fitness-session" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-white/70 hover:text-brand-blue transition-colors"
+                  >
+                    Book a Session
+                  </a>
+                </li>
               </ul>
             </div>
 
@@ -59,8 +69,8 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-white/50 text-sm">© {currentYear} Emotional Fitness Training. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-white/50 hover:text-white text-sm transition-colors">Privacy Policy</a>
-            <a href="#" className="text-white/50 hover:text-white text-sm transition-colors">Terms of Service</a>
+            <Link to="/privacy-policy" className="text-white/50 hover:text-white text-sm transition-colors">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="text-white/50 hover:text-white text-sm transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
