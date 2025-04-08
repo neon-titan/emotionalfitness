@@ -17,7 +17,7 @@ export const SOCIAL_MEDIA = {
 };
 
 // Brand Text
-export const BRAND_NAME = 'Get After It, Family!™';
+export const BRAND_NAME = 'GET AFTER IT, FAMILY!™';
 export const BRAND_TAGLINE = 'Optimize your emotions for peak performance.';
 
 // Meta Information
