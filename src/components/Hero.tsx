@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import Logo from "./Logo";
 
@@ -37,7 +36,9 @@ const Hero = () => {
           </div>
           
           <div className="mt-16 md:mt-24">
-            <p className="uppercase tracking-widest text-white/50 text-sm mb-4">PEAK STATE | OPTIMIZATION | PASSION | DRIVE</p>
+            <p className="uppercase tracking-widest text-white/50 text-sm mb-4 font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-white/80 to-white/60 animate-pulse">
+              PEAK STATE | OPTIMIZATION | PASSION | DRIVE
+            </p>
           </div>
           
           <div className="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce">
