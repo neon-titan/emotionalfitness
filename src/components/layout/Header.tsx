@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { Menu, X, Instagram, Twitter, Facebook, Linkedin } from "lucide-react";
@@ -34,16 +35,21 @@ const Header = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled ? "bg-black/80 backdrop-blur-md py-3" : "bg-transparent py-5"
       }`}
+      role="banner"
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
-        <a href="/" className="text-white text-xl font-bold">
+        <a 
+          href="/" 
+          className="text-white text-xl font-bold"
+          aria-label="Home"
+        >
           <span className="gradient-text">GET AFTER IT, FAMILY!&#8482;</span>
         </a>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center">
           {/* Social Media Links - Desktop */}
-          <div className="flex space-x-3 mr-8">
+          <div className="flex space-x-3 mr-8" aria-label="Social media links">
             <a 
               href="https://www.instagram.com/muellegger/" 
               target="_blank" 
@@ -51,7 +57,7 @@ const Header = () => {
               className="text-white/70 hover:text-brand-blue transition-colors"
               aria-label="Instagram"
             >
-              <Instagram size={18} />
+              <Instagram size={18} aria-hidden="true" />
             </a>
             <a 
               href="https://twitter.com/AMuellegger" 
@@ -60,7 +66,7 @@ const Header = () => {
               className="text-white/70 hover:text-brand-blue transition-colors"
               aria-label="Twitter"
             >
-              <Twitter size={18} />
+              <Twitter size={18} aria-hidden="true" />
             </a>
             <a 
               href="https://www.facebook.com/alan.muellegger/" 
@@ -69,7 +75,7 @@ const Header = () => {
               className="text-white/70 hover:text-brand-blue transition-colors"
               aria-label="Facebook"
             >
-              <Facebook size={18} />
+              <Facebook size={18} aria-hidden="true" />
             </a>
             <a 
               href="https://www.linkedin.com/in/alan-muellegger" 
@@ -78,29 +84,42 @@ const Header = () => {
               className="text-white/70 hover:text-brand-blue transition-colors"
               aria-label="LinkedIn"
             >
-              <Linkedin size={18} />
+              <Linkedin size={18} aria-hidden="true" />
             </a>
           </div>
           
-          <nav className="flex items-center space-x-8">
-            <a href="#services" className="text-white hover:text-brand-blue transition-colors">
-              Services
-            </a>
-            <a href="#about" className="text-white hover:text-brand-blue transition-colors">
-              About
-            </a>
-            <a href="#testimonials" className="text-white hover:text-brand-blue transition-colors">
-              Testimonials
-            </a>
-            <a href="#contact" className="text-white hover:text-brand-blue transition-colors">
-              Contact
-            </a>
-            <Button 
-              className="bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-purple hover:to-brand-pink transition-all"
-              onClick={() => window.open(calendlyUrl, '_blank')}
-            >
-              Book a Session
-            </Button>
+          <nav aria-label="Main navigation">
+            <ul className="flex items-center space-x-8">
+              <li>
+                <a href="#services" className="text-white hover:text-brand-blue transition-colors">
+                  Services
+                </a>
+              </li>
+              <li>
+                <a href="#about" className="text-white hover:text-brand-blue transition-colors">
+                  About
+                </a>
+              </li>
+              <li>
+                <a href="#testimonials" className="text-white hover:text-brand-blue transition-colors">
+                  Testimonials
+                </a>
+              </li>
+              <li>
+                <a href="#contact" className="text-white hover:text-brand-blue transition-colors">
+                  Contact
+                </a>
+              </li>
+              <li>
+                <Button 
+                  className="bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-purple hover:to-brand-pink transition-all"
+                  onClick={() => window.open(calendlyUrl, '_blank')}
+                  aria-label="Book a session on Calendly"
+                >
+                  Book a Session
+                </Button>
+              </li>
+            </ul>
           </nav>
         </div>
 
@@ -108,94 +127,118 @@ const Header = () => {
         <button
           className="md:hidden text-white"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-expanded={isMobileMenuOpen}
+          aria-controls="mobile-menu"
+          aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
         >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMobileMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
         </button>
       </div>
 
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
-        <nav className="md:hidden bg-black/95 backdrop-blur-md absolute w-full py-4 animate-fade-in">
-          <div className="container mx-auto px-4 flex flex-col space-y-4">
-            <a
-              href="#services"
-              className="text-white hover:text-brand-blue transition-colors py-2"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Services
-            </a>
-            <a
-              href="#about"
-              className="text-white hover:text-brand-blue transition-colors py-2"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              About
-            </a>
-            <a
-              href="#testimonials"
-              className="text-white hover:text-brand-blue transition-colors py-2"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Testimonials
-            </a>
-            <a
-              href="#contact"
-              className="text-white hover:text-brand-blue transition-colors py-2"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Contact
-            </a>
+        <nav 
+          id="mobile-menu"
+          className="md:hidden bg-black/95 backdrop-blur-md absolute w-full py-4 animate-fade-in"
+          aria-label="Mobile navigation"
+        >
+          <ul className="container mx-auto px-4 flex flex-col space-y-4">
+            <li>
+              <a
+                href="#services"
+                className="text-white hover:text-brand-blue transition-colors py-2 block"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Services
+              </a>
+            </li>
+            <li>
+              <a
+                href="#about"
+                className="text-white hover:text-brand-blue transition-colors py-2 block"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                About
+              </a>
+            </li>
+            <li>
+              <a
+                href="#testimonials"
+                className="text-white hover:text-brand-blue transition-colors py-2 block"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Testimonials
+              </a>
+            </li>
+            <li>
+              <a
+                href="#contact"
+                className="text-white hover:text-brand-blue transition-colors py-2 block"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Contact
+              </a>
+            </li>
             
             {/* Social Media Links - Mobile */}
-            <div className="flex space-x-5 py-2">
-              <a 
-                href="https://www.instagram.com/muellegger/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-white/70 hover:text-brand-blue transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                <Instagram size={20} />
-              </a>
-              <a 
-                href="https://twitter.com/AMuellegger" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-white/70 hover:text-brand-blue transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                <Twitter size={20} />
-              </a>
-              <a 
-                href="https://www.facebook.com/alan.muellegger/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-white/70 hover:text-brand-blue transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                <Facebook size={20} />
-              </a>
-              <a 
-                href="https://www.linkedin.com/in/alan-muellegger" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-white/70 hover:text-brand-blue transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                <Linkedin size={20} />
-              </a>
-            </div>
+            <li>
+              <div className="flex space-x-5 py-2" aria-label="Social media links">
+                <a 
+                  href="https://www.instagram.com/muellegger/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-white/70 hover:text-brand-blue transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  aria-label="Instagram"
+                >
+                  <Instagram size={20} aria-hidden="true" />
+                </a>
+                <a 
+                  href="https://twitter.com/AMuellegger" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-white/70 hover:text-brand-blue transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  aria-label="Twitter"
+                >
+                  <Twitter size={20} aria-hidden="true" />
+                </a>
+                <a 
+                  href="https://www.facebook.com/alan.muellegger/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-white/70 hover:text-brand-blue transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  aria-label="Facebook"
+                >
+                  <Facebook size={20} aria-hidden="true" />
+                </a>
+                <a 
+                  href="https://www.linkedin.com/in/alan-muellegger" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-white/70 hover:text-brand-blue transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin size={20} aria-hidden="true" />
+                </a>
+              </div>
+            </li>
             
-            <Button
-              className="bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-purple hover:to-brand-pink transition-all w-full"
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                window.open(calendlyUrl, '_blank');
-              }}
-            >
-              Book a Session
-            </Button>
-          </div>
+            <li>
+              <Button
+                className="bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-purple hover:to-brand-pink transition-all w-full"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  window.open(calendlyUrl, '_blank');
+                }}
+                aria-label="Book a session on Calendly"
+              >
+                Book a Session
+              </Button>
+            </li>
+          </ul>
         </nav>
       )}
     </header>

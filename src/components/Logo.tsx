@@ -5,9 +5,10 @@ import { createImagePlaceholder } from "@/utils/imageUtils";
 interface LogoProps {
   size?: "sm" | "md" | "lg" | "xl";
   animate?: boolean;
+  alt?: string;
 }
 
-const Logo = ({ size = "md", animate = true }: LogoProps) => {
+const Logo = ({ size = "md", animate = true, alt = "Emotional Fitness Training Logo" }: LogoProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [logoError, setLogoError] = useState(false);
   const [placeholderSrc, setPlaceholderSrc] = useState<string | null>(null);
@@ -50,7 +51,11 @@ const Logo = ({ size = "md", animate = true }: LogoProps) => {
   };
 
   return (
-    <div className={`${sizeClasses[size]} relative transition-opacity duration-300 rounded-full overflow-hidden ${!logoError ? 'bg-transparent' : 'bg-gray-100'}`}>
+    <div 
+      className={`${sizeClasses[size]} relative transition-opacity duration-300 rounded-full overflow-hidden ${!logoError ? 'bg-transparent' : 'bg-gray-100'}`}
+      role="img"
+      aria-label={alt}
+    >
       {/* Low quality placeholder */}
       {placeholderSrc && !isLoaded && (
         <img 
@@ -65,7 +70,7 @@ const Logo = ({ size = "md", animate = true }: LogoProps) => {
       <img 
         ref={imgRef}
         src={logoSrc} 
-        alt="Emotional Fitness Training Logo" 
+        alt={alt} 
         className={`w-full h-full object-contain ${animate ? 'animate-pulse-glow' : ''} ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}
         onLoad={() => setIsLoaded(true)}
         onError={() => {

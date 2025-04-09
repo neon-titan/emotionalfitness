@@ -17,7 +17,7 @@ const Footer = lazy(() => import("@/components/Footer"));
 
 // Skeleton loaders for lazy-loaded components
 const SectionSkeleton = () => (
-  <div className="w-full py-16">
+  <div className="w-full py-16" aria-hidden="true">
     <Skeleton className="w-48 h-10 mx-auto mb-8" />
     <div className="flex flex-col md:flex-row gap-8 max-w-6xl mx-auto px-4">
       <Skeleton className="w-full h-64" />
@@ -45,32 +45,34 @@ const Index = () => {
         canonical="https://emotionalfitness.com/"
       />
       <Header />
-      <Hero />
-      
-      {/* Lazy loaded sections with suspense fallbacks */}
-      <Suspense fallback={<SectionSkeleton />}>
-        <Services />
-      </Suspense>
-      
-      <Suspense fallback={<SectionSkeleton />}>
-        <About />
-      </Suspense>
-      
-      <Suspense fallback={<SectionSkeleton />}>
-        <Testimonials />
-      </Suspense>
-      
-      <Suspense fallback={<SectionSkeleton />}>
-        <Pricing />
-      </Suspense>
-      
-      <Suspense fallback={<SectionSkeleton />}>
-        <FAQ />
-      </Suspense>
-      
-      <Suspense fallback={<SectionSkeleton />}>
-        <Contact />
-      </Suspense>
+      <main id="main-content" tabIndex={-1}>
+        <Hero />
+        
+        {/* Lazy loaded sections with suspense fallbacks */}
+        <Suspense fallback={<SectionSkeleton />}>
+          <Services />
+        </Suspense>
+        
+        <Suspense fallback={<SectionSkeleton />}>
+          <About />
+        </Suspense>
+        
+        <Suspense fallback={<SectionSkeleton />}>
+          <Testimonials />
+        </Suspense>
+        
+        <Suspense fallback={<SectionSkeleton />}>
+          <Pricing />
+        </Suspense>
+        
+        <Suspense fallback={<SectionSkeleton />}>
+          <FAQ />
+        </Suspense>
+        
+        <Suspense fallback={<SectionSkeleton />}>
+          <Contact />
+        </Suspense>
+      </main>
       
       <Suspense fallback={<SectionSkeleton />}>
         <Footer />
