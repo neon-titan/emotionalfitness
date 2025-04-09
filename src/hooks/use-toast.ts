@@ -1,3 +1,4 @@
+
 import * as React from "react"
 
 import type {
@@ -54,6 +55,9 @@ interface State {
 }
 
 const toastTimeouts = new Map<string, ReturnType<typeof setTimeout>>()
+
+// Add the missing listeners array
+const listeners: ((state: State) => void)[] = []
 
 const addToRemoveQueue = (toastId: string) => {
   if (toastTimeouts.has(toastId)) {
