@@ -1,9 +1,8 @@
-
 import React, { Component, ErrorInfo } from "react";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
-import { ReloadIcon } from "@radix-ui/react-icons";
+import { Reload } from "lucide-react";
 
 interface ErrorBoundaryProps {
   children: React.ReactNode;
@@ -27,10 +26,8 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
-    // Log the error to our monitoring service
     console.error("Error caught by ErrorBoundary:", error, errorInfo);
     
-    // Send to error monitoring service
     if (this.props.onError) {
       this.props.onError(error, errorInfo);
     } else {
@@ -62,7 +59,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
                 onClick={this.handleReset}
                 className="mt-2"
               >
-                <ReloadIcon className="mr-2 h-4 w-4" />
+                <Reload className="mr-2 h-4 w-4" />
                 Reload Page
               </Button>
             </AlertDescription>
@@ -77,14 +74,10 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
 
 export default ErrorBoundary;
 
-// Utility function to log errors to a monitoring service
 export const logErrorToService = (
   error: Error, 
   errorInfo?: ErrorInfo
 ): void => {
-  // In production, this would send to a real service like Sentry
-  // For now, we'll just log to console with additional context
-  
   console.group("🚨 Error Logged to Monitoring Service");
   console.error("Error:", error);
   if (errorInfo) {
@@ -94,7 +87,6 @@ export const logErrorToService = (
   console.info("User Agent:", navigator.userAgent);
   console.groupEnd();
   
-  // Show toast to user indicating error was logged
   toast({
     variant: "destructive",
     title: "Error logged",
