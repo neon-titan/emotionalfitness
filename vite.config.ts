@@ -3,6 +3,18 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
+import { execSync } from "child_process";
+
+// Update browserslist database before build
+if (process.env.NODE_ENV === 'production') {
+  try {
+    console.log('Updating browserslist database...');
+    execSync('npx update-browserslist-db@latest', { stdio: 'inherit' });
+  } catch (error) {
+    console.error('Failed to update browserslist database:', error);
+    // Continue with the build even if update fails
+  }
+}
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -54,6 +66,12 @@ export default defineConfig(({ mode }) => ({
     // Optimize dependencies
     commonjsOptions: {
       transformMixedEsModules: true
+    },
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true
+      }
     }
   }
 }));
