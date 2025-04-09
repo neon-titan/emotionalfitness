@@ -1,8 +1,9 @@
+
 import React, { Component, ErrorInfo } from "react";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
-import { Reload } from "lucide-react";
+import { RefreshCw } from "lucide-react";
 
 interface ErrorBoundaryProps {
   children: React.ReactNode;
@@ -59,7 +60,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
                 onClick={this.handleReset}
                 className="mt-2"
               >
-                <Reload className="mr-2 h-4 w-4" />
+                <RefreshCw className="mr-2 h-4 w-4" />
                 Reload Page
               </Button>
             </AlertDescription>

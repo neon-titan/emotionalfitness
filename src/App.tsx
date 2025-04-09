@@ -28,12 +28,11 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       retry: 1,
-      // Log errors to monitoring service
-      onError: (error) => {
-        if (error instanceof Error) {
+      // Use meta.onError for error logging
+      meta: {
+        onError: (error: Error) => {
           console.error('Query error:', error);
-          // If we had the error monitoring service imported directly,
-          // we would log it here.
+          // Log to error monitoring service if needed
         }
       }
     }
