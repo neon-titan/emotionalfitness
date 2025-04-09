@@ -126,6 +126,50 @@ const Component = () => {
 };
 ```
 
+## High-Level Prompts for Site Creation
+
+The following structured prompts can be used to recreate this website with an AI assistant like Lovable:
+
+1. **Project Setup and Configuration**:
+   ```
+   Create a new React website for an emotional fitness coaching business using TypeScript, Vite, TailwindCSS, and shadcn/ui. Set up the essential project structure with components, pages, and hooks directories. Configure build optimizations in vite.config.ts including Terser minification and code splitting.
+   ```
+
+2. **Core Pages and Navigation**:
+   ```
+   Create the main pages for the website: Home, About, Services, Testimonials, Pricing, FAQ, Contact, and legal pages (Privacy, Terms, Disclaimers). Implement a responsive header with navigation and a footer with social links and copyright information.
+   ```
+
+3. **Component Structure**:
+   ```
+   Set up a component hierarchy with layout components (Header, Footer), section components (Hero, Services, etc.), UI components, and reusable elements. Create an SEO component using React Helmet Async for metadata management.
+   ```
+
+4. **Styling and Brand Identity**:
+   ```
+   Implement a cohesive design system with a color palette of black background and accent colors (brand-blue, brand-purple, brand-pink). Use TailwindCSS for responsive styling with a focus on gradient effects and modern UI elements.
+   ```
+
+5. **Performance Optimization**:
+   ```
+   Implement performance optimizations including lazy loading for non-critical components, image optimization, code splitting via React Router, and build optimizations (asset fingerprinting, chunk splitting).
+   ```
+
+6. **Error Handling and Monitoring**:
+   ```
+   Set up comprehensive error handling with error boundaries for each major section. Create a custom error monitoring hook for tracking issues in production.
+   ```
+
+7. **Toast Notification System**:
+   ```
+   Implement a toast notification system using shadcn/ui toast components with a custom hook implementation for consistent user feedback throughout the application.
+   ```
+
+8. **Documentation Creation**:
+   ```
+   Create comprehensive developer documentation (DEVELOPER_GUIDE.md) and standard operating procedures (STANDARD_OPERATING_PROCEDURES.md) for maintaining and extending the website.
+   ```
+
 ## Deployment
 
 The site is deployed using Lovable's publishing feature, which creates a production build and deploys it to a hosting service.

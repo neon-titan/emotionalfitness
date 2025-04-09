@@ -1,3 +1,4 @@
+
 # Emotional Fitness Website - Standard Operating Procedures
 
 This document provides step-by-step instructions for common tasks on the Emotional Fitness website. It's designed for team members who may not have technical experience with web development.
@@ -11,6 +12,7 @@ This document provides step-by-step instructions for common tasks on the Emotion
 5. [Booking System](#booking-system)
 6. [Troubleshooting](#troubleshooting)
 7. [Domain and Hosting Management](#domain-and-hosting-management)
+8. [AI-Assisted Website Development](#ai-assisted-website-development)
 
 ---
 
@@ -163,6 +165,66 @@ After a client books a session:
 
 ---
 
+## AI-Assisted Website Development
+
+If you need to recreate or make significant updates to the website using an AI assistant like Lovable, use these structured prompts as starting points:
+
+### Core Website Structure Prompts
+
+1. **Initial Setup and Branding**:
+   ```
+   Create a modern, responsive website for an emotional fitness coaching business. Use a dark theme with accent colors (brand-blue, brand-purple, brand-pink). The site should convey premium coaching services for high performers with a focus on emotional optimization and peak performance.
+   ```
+
+2. **Page Structure and Navigation**:
+   ```
+   Build a website with the following pages: Home, About, Services, Testimonials, Pricing, FAQ, Contact, Privacy Policy, Terms of Service, and Legal Disclaimers. Create a responsive navigation header and footer with social media links to Instagram, Twitter, LinkedIn, and Facebook.
+   ```
+
+3. **Hero Section Development**:
+   ```
+   Design a compelling hero section with a gradient background, bold headline "GET AFTER IT, FAMILY!™", and subheading "Optimize your emotions for peak performance." Include a prominent call-to-action button linking to the booking system.
+   ```
+
+### Functionality Prompts
+
+4. **Booking Integration**:
+   ```
+   Integrate Calendly for session booking with the URL https://calendly.com/alan-muellegger/emotional-fitness-session. Create a dedicated Contact section with the booking calendar embedded and a contact form.
+   ```
+
+5. **Performance and Error Handling**:
+   ```
+   Implement performance optimizations including lazy loading for non-critical sections, error boundaries for component isolation, and a custom error monitoring system. Configure build optimizations with Terser for production deployment.
+   ```
+
+6. **Toast Notification System**:
+   ```
+   Create a toast notification system for user feedback when interacting with forms and buttons. Use shadcn/ui components with a custom implementation in the hooks directory.
+   ```
+
+### Documentation Prompts
+
+7. **Developer Documentation**:
+   ```
+   Create a comprehensive developer guide documenting the project structure, component design principles, styling approach, and performance optimizations. Include code examples for adding new pages and components.
+   ```
+
+8. **Content Management Instructions**:
+   ```
+   Develop standard operating procedures for content updates, SEO optimization, and booking system management. Include step-by-step instructions for non-technical team members.
+   ```
+
+### Using These Prompts
+
+When working with AI tools like Lovable:
+1. Start with high-level prompts and progressively add detail
+2. Focus on one major component or feature at a time
+3. Review generated code before moving to the next prompt
+4. Provide specific feedback to refine the implementation
+
+---
+
 ## Troubleshooting
 
 ### Common Issues and Solutions
@@ -209,4 +271,4 @@ Regular maintenance occurs on:
 
 ---
 
-*Last Updated: April 8, 2025*
+*Last Updated: April 9, 2025*
