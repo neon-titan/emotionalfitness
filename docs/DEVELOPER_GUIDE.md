@@ -14,6 +14,7 @@ src/
 │   ├── ui/                # UI components from shadcn/ui
 │   └── Logo.tsx           # Logo component
 ├── hooks/                 # Custom React hooks
+│   └── toast/             # Toast functionality implementation
 ├── integrations/          # Third-party integrations
 │   └── supabase/          # Supabase client and types
 ├── lib/                   # Utility libraries
@@ -97,6 +98,34 @@ export default NewPage;
 1. Create a new file in the `components/sections/` directory
 2. Import and use it in a page component
 
+## Toast Notifications
+
+The project uses the shadcn/ui toast system with a customized implementation:
+
+1. **Implementation**: The toast functionality is implemented in `src/hooks/toast/`
+2. **Usage**: Import the toast functions from `@/hooks/use-toast`
+3. **Components**: Toast UI components are in `@/components/ui/toast.tsx`
+4. **Usage Example**:
+
+```tsx
+import { useToast } from "@/hooks/use-toast";
+
+const Component = () => {
+  const { toast } = useToast();
+  
+  const handleAction = () => {
+    toast({
+      title: "Success!",
+      description: "Your action was completed successfully."
+    });
+  };
+  
+  return (
+    <button onClick={handleAction}>Show Toast</button>
+  );
+};
+```
+
 ## Deployment
 
 The site is deployed using Lovable's publishing feature, which creates a production build and deploys it to a hosting service.
@@ -148,3 +177,14 @@ The site uses several techniques to optimize performance:
 2. Code splitting via React Router
 3. Optimized TailwindCSS configuration
 4. Responsive image handling
+5. Build optimizations:
+   - Terser minification
+   - Console removal in production
+   - Asset fingerprinting
+   - Chunk splitting
+
+## Error Monitoring
+
+The project includes a custom error monitoring hook:
+1. **Implementation**: The error monitoring is implemented in `src/hooks/use-error-monitoring.ts`
+2. **Usage**: Import and use `useErrorMonitoring` in components that need error tracking
