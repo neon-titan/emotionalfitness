@@ -7,7 +7,7 @@ import type {
 } from "@/components/ui/toast"
 
 const TOAST_LIMIT = 1
-const TOAST_REMOVE_DELAY = 5000 // Changed from 1000000 to 5000ms (5 seconds)
+const TOAST_REMOVE_DELAY = 5000 // 5 seconds timeout
 
 type ToasterToast = ToastProps & {
   id: string
@@ -54,10 +54,11 @@ interface State {
   toasts: ToasterToast[]
 }
 
+// Enhanced timeout management
 const toastTimeouts = new Map<string, ReturnType<typeof setTimeout>>()
 
-// Add the missing listeners array
-const listeners: ((state: State) => void)[] = []
+// Listeners with better type safety
+const listeners: Array<(state: State) => void> = []
 
 const addToRemoveQueue = (toastId: string) => {
   if (toastTimeouts.has(toastId)) {
@@ -94,8 +95,6 @@ export const reducer = (state: State, action: Action): State => {
     case "DISMISS_TOAST": {
       const { toastId } = action
 
-      // ! Side effects ! - This could be extracted into a dismissToast() action,
-      // but I'll keep it here for simplicity
       if (toastId) {
         addToRemoveQueue(toastId)
       } else {
@@ -118,10 +117,10 @@ export const reducer = (state: State, action: Action): State => {
     }
     case "REMOVE_TOAST":
       if (action.toastId === undefined) {
-        return {
-          ...state,
-          toasts: [],
-        }
+        // Clear all toasts and cancel all timers
+        toastTimeouts.forEach((timeout) => clearTimeout(timeout));
+        toastTimeouts.clear();
+        return { ...state, toasts: [] };
       }
       return {
         ...state,
@@ -132,8 +131,8 @@ export const reducer = (state: State, action: Action): State => {
 
 let memoryState: State = { toasts: [] }
 
-// Add this function to ensure all timeouts are cleared
 export function clearAllToasts() {
+  // Ensure all timeouts are cleared and state is reset
   toastTimeouts.forEach((timeout) => clearTimeout(timeout));
   toastTimeouts.clear();
   dispatch({ type: "REMOVE_TOAST" });
