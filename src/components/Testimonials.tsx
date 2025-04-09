@@ -1,7 +1,9 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { createResponsivePlaceholder, shouldLazyLoad } from "@/utils/imageUtils";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const testimonials = [
   {
@@ -29,6 +31,48 @@ const testimonials = [
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState<Record<number, boolean>>({});
+  const [placeholders, setPlaceholders] = useState<Record<number, string>>({});
+
+  // Preload all testimonial images at component mount
+  useEffect(() => {
+    const preloadImages = async () => {
+      // Create initial loaded states
+      const initialLoadedStates: Record<number, boolean> = {};
+      testimonials.forEach(t => { initialLoadedStates[t.id] = false; });
+      setImagesLoaded(initialLoadedStates);
+      
+      // Generate placeholders for all images
+      const placeholderPromises = testimonials.map(async (testimonial) => {
+        try {
+          const placeholder = await createResponsivePlaceholder(testimonial.image, 20, 20, 'webp');
+          return { id: testimonial.id, placeholder };
+        } catch (error) {
+          console.error(`Failed to create placeholder for testimonial ${testimonial.id}:`, error);
+          return { id: testimonial.id, placeholder: '' };
+        }
+      });
+      
+      const placeholderResults = await Promise.all(placeholderPromises);
+      const placeholderMap: Record<number, string> = {};
+      placeholderResults.forEach(result => {
+        placeholderMap[result.id] = result.placeholder;
+      });
+      
+      setPlaceholders(placeholderMap);
+      
+      // Preload actual images
+      testimonials.forEach(testimonial => {
+        const img = new Image();
+        img.onload = () => {
+          setImagesLoaded(prev => ({ ...prev, [testimonial.id]: true }));
+        };
+        img.src = testimonial.image;
+      });
+    };
+    
+    preloadImages();
+  }, []);
 
   const nextTestimonial = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
@@ -37,6 +81,10 @@ const Testimonials = () => {
   const prevTestimonial = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
   };
+  
+  const currentTestimonial = testimonials[currentIndex];
+  const isLoaded = imagesLoaded[currentTestimonial.id];
+  const placeholder = placeholders[currentTestimonial.id];
 
   return (
     <section id="testimonials" className="py-20 bg-black">
@@ -52,19 +100,33 @@ const Testimonials = () => {
               <Quote className="w-12 h-12 text-brand-blue opacity-30 mb-6" />
               
               <p className="text-white/90 text-lg mb-8 italic">
-                "{testimonials[currentIndex].content}"
+                "{currentTestimonial.content}"
               </p>
               
-              <div className="w-16 h-16 rounded-full overflow-hidden mb-4 border-2 border-brand-purple">
-                <img 
-                  src={testimonials[currentIndex].image}
-                  alt={testimonials[currentIndex].name}
-                  className="w-full h-full object-cover"
-                />
+              <div className="w-16 h-16 rounded-full overflow-hidden mb-4 border-2 border-brand-purple relative">
+                {placeholder && !isLoaded && (
+                  <div 
+                    className="absolute inset-0 bg-cover bg-center blur-sm" 
+                    style={{ backgroundImage: `url(${placeholder})` }}
+                    aria-hidden="true"
+                  />
+                )}
+                
+                <AspectRatio ratio={1} className="bg-muted/20">
+                  <img 
+                    src={currentTestimonial.image}
+                    alt={currentTestimonial.name}
+                    className={`w-full h-full object-cover transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+                    onLoad={() => setImagesLoaded(prev => ({ ...prev, [currentTestimonial.id]: true }))}
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                  />
+                </AspectRatio>
               </div>
               
-              <h4 className="text-white font-semibold text-lg">{testimonials[currentIndex].name}</h4>
-              <p className="text-white/70">{testimonials[currentIndex].role}</p>
+              <h4 className="text-white font-semibold text-lg">{currentTestimonial.name}</h4>
+              <p className="text-white/70">{currentTestimonial.role}</p>
             </div>
           </Card>
           

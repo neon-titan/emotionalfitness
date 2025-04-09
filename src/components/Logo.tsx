@@ -1,6 +1,6 @@
 
 import { useState, useEffect, useRef } from "react";
-import { createImagePlaceholder } from "@/utils/imageUtils";
+import { createResponsivePlaceholder, isImageCached } from "@/utils/imageUtils";
 
 interface LogoProps {
   size?: "sm" | "md" | "lg" | "xl";
@@ -21,10 +21,19 @@ const Logo = ({ size = "md", animate = true, alt = "Emotional Fitness Training L
   useEffect(() => {
     let isMounted = true;
     
-    // Generate a low quality placeholder
-    const generatePlaceholder = async () => {
+    // Check if image is cached first
+    const loadImage = async () => {
+      const isCached = await isImageCached(logoSrc);
+      
+      if (isCached) {
+        // If cached, mark as loaded immediately
+        if (isMounted) setIsLoaded(true);
+        return;
+      }
+      
+      // If not cached, generate a placeholder
       try {
-        const placeholder = await createImagePlaceholder(logoSrc, 20, 20);
+        const placeholder = await createResponsivePlaceholder(logoSrc, 20, 20, 'webp');
         if (isMounted) {
           setPlaceholderSrc(placeholder);
         }
@@ -33,10 +42,7 @@ const Logo = ({ size = "md", animate = true, alt = "Emotional Fitness Training L
       }
     };
     
-    // Only generate placeholder if image isn't already in browser cache
-    if (!isLoaded && imgRef.current && !imgRef.current.complete) {
-      generatePlaceholder();
-    }
+    loadImage();
     
     return () => {
       isMounted = false;
@@ -58,10 +64,9 @@ const Logo = ({ size = "md", animate = true, alt = "Emotional Fitness Training L
     >
       {/* Low quality placeholder */}
       {placeholderSrc && !isLoaded && (
-        <img 
-          src={placeholderSrc}
-          alt=""
-          className="w-full h-full object-contain blur-sm absolute inset-0"
+        <div 
+          className="absolute inset-0 bg-cover bg-center blur-sm"
+          style={{ backgroundImage: `url(${placeholderSrc})` }}
           aria-hidden="true"
         />
       )}
