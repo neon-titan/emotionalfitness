@@ -4,6 +4,7 @@ import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
 import { RefreshCw } from "lucide-react";
+import { errorMonitoring } from "@/services/errorMonitoring";
 
 interface ErrorBoundaryProps {
   children: React.ReactNode;
@@ -29,10 +30,11 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
     console.error("Error caught by ErrorBoundary:", error, errorInfo);
     
+    // Capture error with monitoring service
+    errorMonitoring.captureError(error, errorInfo);
+    
     if (this.props.onError) {
       this.props.onError(error, errorInfo);
-    } else {
-      logErrorToService(error, errorInfo);
     }
   }
 
@@ -74,23 +76,3 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
 }
 
 export default ErrorBoundary;
-
-export const logErrorToService = (
-  error: Error, 
-  errorInfo?: ErrorInfo
-): void => {
-  console.group("🚨 Error Logged to Monitoring Service");
-  console.error("Error:", error);
-  if (errorInfo) {
-    console.error("Component Stack:", errorInfo.componentStack);
-  }
-  console.info("URL:", window.location.href);
-  console.info("User Agent:", navigator.userAgent);
-  console.groupEnd();
-  
-  toast({
-    variant: "destructive",
-    title: "Error logged",
-    description: "Our team has been notified of the issue.",
-  });
-};
