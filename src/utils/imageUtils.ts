@@ -102,7 +102,9 @@ export const getCriticalAssets = (): string[] => {
   ];
 
   // Optional: Check browser support for WebP/AVIF
-  if ('image/webp' in document.createElement('canvas').toDataURL()) {
+  const canvas = document.createElement('canvas');
+  // Check if WebP is supported
+  if (canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0) {
     // Potentially add WebP versions if available
     baseAssets.push(...baseAssets.map(asset => asset.replace('.png', '.webp')));
   }
