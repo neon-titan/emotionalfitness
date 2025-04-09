@@ -1,4 +1,10 @@
-import { TOAST_LIMIT, Action, State, actionTypes, TOAST_REMOVE_DELAY } from "./toast-types"
+import { 
+  TOAST_LIMIT, 
+  TOAST_REMOVE_DELAY, 
+  Action, 
+  State, 
+  actionTypes 
+} from "./toast-types"
 
 // Generate unique IDs for toasts
 let count = 0
