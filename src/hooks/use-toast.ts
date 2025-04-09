@@ -6,7 +6,7 @@ import type {
 } from "@/components/ui/toast"
 
 const TOAST_LIMIT = 1
-const TOAST_REMOVE_DELAY = 1000000
+const TOAST_REMOVE_DELAY = 5000 // Changed from 1000000 to 5000ms (5 seconds)
 
 type ToasterToast = ToastProps & {
   id: string
@@ -126,9 +126,14 @@ export const reducer = (state: State, action: Action): State => {
   }
 }
 
-const listeners: Array<(state: State) => void> = []
-
 let memoryState: State = { toasts: [] }
+
+// Add this function to ensure all timeouts are cleared
+export function clearAllToasts() {
+  toastTimeouts.forEach((timeout) => clearTimeout(timeout));
+  toastTimeouts.clear();
+  dispatch({ type: "REMOVE_TOAST" });
+}
 
 function dispatch(action: Action) {
   memoryState = reducer(memoryState, action)
@@ -185,6 +190,7 @@ function useToast() {
     ...state,
     toast,
     dismiss: (toastId?: string) => dispatch({ type: "DISMISS_TOAST", toastId }),
+    clearAll: () => clearAllToasts(),
   }
 }
 

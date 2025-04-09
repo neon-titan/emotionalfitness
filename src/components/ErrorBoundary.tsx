@@ -10,25 +10,30 @@ interface ErrorBoundaryProps {
   children: React.ReactNode;
   fallback?: React.ReactNode;
   onError?: (error: Error, errorInfo: ErrorInfo) => void;
+  resetKey?: any; // Used to reset the error boundary when props change
 }
 
 interface ErrorBoundaryState {
   hasError: boolean;
   error: Error | null;
+  errorInfo: ErrorInfo | null;
 }
 
 class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   constructor(props: ErrorBoundaryProps) {
     super(props);
-    this.state = { hasError: false, error: null };
+    this.state = { hasError: false, error: null, errorInfo: null };
   }
 
-  static getDerivedStateFromError(error: Error): ErrorBoundaryState {
+  static getDerivedStateFromError(error: Error): Partial<ErrorBoundaryState> {
     return { hasError: true, error };
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
     console.error("Error caught by ErrorBoundary:", error, errorInfo);
+    
+    // Store the error info in state
+    this.setState({ errorInfo });
     
     // Capture error with monitoring service
     errorMonitoring.captureError(error, errorInfo);
@@ -36,11 +41,41 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
     if (this.props.onError) {
       this.props.onError(error, errorInfo);
     }
+    
+    // Show toast notification
+    toast({
+      variant: "destructive",
+      title: "An error occurred",
+      description: "Our team has been notified of the issue.",
+    });
+  }
+  
+  // Reset the error boundary if resetKey changes
+  componentDidUpdate(prevProps: ErrorBoundaryProps) {
+    if (
+      this.state.hasError && 
+      prevProps.resetKey !== this.props.resetKey
+    ) {
+      this.reset();
+    }
   }
 
+  // Method to programmatically reset the error boundary
+  reset = (): void => {
+    this.setState({ hasError: false, error: null, errorInfo: null });
+  };
+
   handleReset = (): void => {
-    this.setState({ hasError: false, error: null });
-    window.location.reload();
+    this.reset();
+    
+    // Only reload if this is a critical error that can't be solved by resetting state
+    const shouldReload = this.state.error?.name === "ChunkLoadError" || 
+                         this.state.error?.message.includes("loading chunk") ||
+                         this.state.error?.message.includes("network");
+    
+    if (shouldReload) {
+      window.location.reload();
+    }
   };
 
   render(): React.ReactNode {
@@ -63,7 +98,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
                 className="mt-2"
               >
                 <RefreshCw className="mr-2 h-4 w-4" />
-                Reload Page
+                Recover
               </Button>
             </AlertDescription>
           </Alert>

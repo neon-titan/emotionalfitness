@@ -17,9 +17,13 @@ class ErrorMonitoringService {
   private readonly MAX_QUEUE_SIZE = 10;
   private readonly FLUSH_INTERVAL = 30000; // 30 seconds
   private flushIntervalId: number | null = null;
+  private globalErrorHandler: (event: ErrorEvent) => void;
+  private unhandledRejectionHandler: (event: PromiseRejectionEvent) => void;
 
   private constructor() {
-    // Private constructor for singleton pattern
+    // Bind the handlers to the instance
+    this.globalErrorHandler = this.handleGlobalError.bind(this);
+    this.unhandledRejectionHandler = this.handleUnhandledRejection.bind(this);
   }
 
   public static getInstance(): ErrorMonitoringService {
@@ -33,8 +37,8 @@ class ErrorMonitoringService {
     if (this.isInitialized) return;
 
     // Set up global error handlers
-    window.addEventListener('error', this.handleGlobalError.bind(this));
-    window.addEventListener('unhandledrejection', this.handleUnhandledRejection.bind(this));
+    window.addEventListener('error', this.globalErrorHandler);
+    window.addEventListener('unhandledrejection', this.unhandledRejectionHandler);
 
     // Set up interval to flush errors
     this.flushIntervalId = window.setInterval(() => {
@@ -43,6 +47,12 @@ class ErrorMonitoringService {
 
     this.isInitialized = true;
     console.info(`🔍 Error monitoring initialized (${appEnvironment})`);
+    
+    // Add shutdown handler
+    window.addEventListener('beforeunload', () => {
+      // Flush any remaining errors before page unload
+      this.flushErrors();
+    });
   }
 
   public captureError(
@@ -50,6 +60,12 @@ class ErrorMonitoringService {
     errorInfo?: ErrorInfo, 
     additionalInfo?: Record<string, unknown>
   ): void {
+    // Don't capture if not initialized
+    if (!this.isInitialized) {
+      console.warn("Error monitoring service not initialized");
+      return;
+    }
+
     const errorDetails: ErrorDetails = {
       message: error.message,
       stack: error.stack,
@@ -57,7 +73,13 @@ class ErrorMonitoringService {
       url: window.location.href,
       timestamp: Date.now(),
       userAgent: navigator.userAgent,
-      additionalInfo
+      additionalInfo: {
+        ...additionalInfo,
+        // Add page visibility state and network information
+        pageVisible: document.visibilityState === 'visible',
+        online: navigator.onLine,
+        referrer: document.referrer,
+      }
     };
 
     this.errorQueue.push(errorDetails);
@@ -77,6 +99,9 @@ class ErrorMonitoringService {
   }
 
   public captureMessage(message: string, level: 'info' | 'warning' | 'error' = 'info'): void {
+    // Don't capture if not initialized
+    if (!this.isInitialized) return;
+
     const details: ErrorDetails = {
       message: `[${level.toUpperCase()}] ${message}`,
       url: window.location.href,
@@ -119,22 +144,39 @@ class ErrorMonitoringService {
       console.log(`📤 Flushing ${this.errorQueue.length} errors to monitoring service`);
     }
     
-    // Here you would normally send the errors to a backend
-    // this.sendErrorsToBackend(this.errorQueue);
-    
-    // Clear the queue
-    this.errorQueue = [];
+    try {
+      // Here you would normally send the errors to a backend
+      // this.sendErrorsToBackend(this.errorQueue);
+      
+      // Simulate network error handling
+      if (navigator.onLine) {
+        // Success - clear the queue
+        this.errorQueue = [];
+      } else {
+        // If offline, keep errors in queue to try again later
+        console.warn("Device offline, keeping errors in queue");
+      }
+    } catch (e) {
+      console.error("Error while flushing errors:", e);
+      // Keep errors in queue to try again
+    }
   }
 
   public shutdown(): void {
+    if (!this.isInitialized) return;
+    
+    // Remove event listeners
+    window.removeEventListener('error', this.globalErrorHandler);
+    window.removeEventListener('unhandledrejection', this.unhandledRejectionHandler);
+    
+    // Clear flush interval
     if (this.flushIntervalId !== null) {
       window.clearInterval(this.flushIntervalId);
+      this.flushIntervalId = null;
     }
+    
     // Flush any remaining errors
     this.flushErrors();
-
-    window.removeEventListener('error', this.handleGlobalError);
-    window.removeEventListener('unhandledrejection', this.handleUnhandledRejection);
     
     this.isInitialized = false;
   }
